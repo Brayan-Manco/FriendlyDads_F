@@ -1,0 +1,14 @@
+<header class="header">
+    <div class="header__logo">
+        <h1>Friendly Dads</h1>
+    </div>
+    <button class="header__toggle" (click)="toggleNav()">Menú</button>
+    <nav class="header__nav" [ngClass]="{ 'active': isNavOpen }">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
