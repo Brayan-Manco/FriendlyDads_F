@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SingInRoutingModule } from './sing-in-routing.module';
 import { SingInComponent } from './pages/sing-in/sing-in.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SingInComponent } from './pages/sing-in/sing-in.component';
   ],
   imports: [
     CommonModule,
-    SingInRoutingModule
+    SingInRoutingModule,
+    FormsModule
   ]
 })
 export class SingInModule { }
