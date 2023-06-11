@@ -24,9 +24,6 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "enviroment": [
-              "src/enviroment.ts"
-            ],
             "styles": [
               "src/styles.css"
             ],
