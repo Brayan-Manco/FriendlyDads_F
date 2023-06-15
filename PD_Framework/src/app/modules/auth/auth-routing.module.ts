@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SingInComponent } from './pages/sing-in/sing-in.component';
+import { AuthComponent } from './pages/auth/auth.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: SingInComponent,
-    outlet: 'home'
+    path: '',
+    component:AuthComponent,
+    outlet:'home'
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SingInRoutingModule { }
+export class AuthRoutingModule { }
