@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    
+  }
+  
+  .left-section,
+  .right-section {
+    flex: 1;
+    margin: 8px;
+    border-radius: 20px;
+  }
+
+  
+  .left-section {
+    background-color: #BEBCFC;
+  }
+  
+  .right-section {
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .login-form h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .login-link{
+    display: flex;
+    justify-content: space-between;
+}
+.login-link a{
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #613DC1;
+    text-decoration: none;
+}
+.login-link a:hover,
+.login-link a:nth-child(2){
+    color: #613DC1;
+}
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #321e8d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+
+
+  }
