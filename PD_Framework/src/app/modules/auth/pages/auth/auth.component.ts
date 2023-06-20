@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
-  isRegisterMode: boolean = false;
-
-  toggleMode(registerMode: boolean): void {
-    this.isRegisterMode = registerMode;
-  }
 }

@@ -10,6 +10,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 
+
 @NgModule({
   declarations: [
     FooterComponent,
@@ -18,7 +19,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     FormPComponent,
     FormFComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+   
   ],
   imports: [
     CommonModule
@@ -30,7 +32,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     FormPComponent,
     FormFComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+  
   ]
 })
 export class SharedModule { }
