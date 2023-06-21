@@ -1,28 +1,32 @@
 .container {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
-    
-    
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #BEBCFC;
   }
   
   .left-section,
   .right-section {
     flex: 1;
-    margin: 8px;
-    border-radius: 20px;
   }
 
   
   .left-section {
+    margin-top: 0;
     background-color: #BEBCFC;
+    margin-bottom: 25px;
   }
   
   .right-section {
-    background-color: #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+  }
+
+  .right-section img {
+    fill: white;
   }
   
   .login-form {
@@ -78,6 +82,4 @@
     .container {
       flex-direction: row;
     }
-
-
   }

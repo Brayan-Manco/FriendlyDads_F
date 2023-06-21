@@ -1,0 +1,104 @@
+
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Estilos del encabezado */
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-left: 10px;
+  }
+  
+  /* Estilos del héroe */
+  
+  .hero {
+    /* background-image: url('hero-image.jpg'); */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  /* Estilos de las características */
+  
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .feature {
+    width: 300px;
+    margin: 0 20px;
+    text-align: center;
+  }
+  
+  .feature img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+  }
+  
+  
+  /* Media Queries para estilos responsive */
+  
+  @media screen and (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav {
+      margin-top: 20px;
+    }
+  
+    .hero {
+      padding: 50px;
+    }
+  
+    .features {
+      padding: 20px;
+    }
+  
+    .feature {
+      width: 100%;
+      margin: 0 0 20px;
+    }
+  }

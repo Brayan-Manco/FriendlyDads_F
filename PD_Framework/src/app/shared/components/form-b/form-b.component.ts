@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./form-b.component.css']
 })
 export class FormBComponent {
-
+  
 }

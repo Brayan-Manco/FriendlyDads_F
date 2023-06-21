@@ -4,12 +4,20 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'inicio',
     pathMatch: 'full'
+  },
+  {
+    path:'inicio',
+    loadChildren: ()=>import('../inicio/inicio.module').then(m =>m.InicioModule)
   },  
   {
     path:'auth',
     loadChildren: ()=>import('../auth/auth.module').then(m =>m.AuthModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: ()=>import('../sign-up/sign-up.module').then(m =>m.SignUpModule)
   },
   {
     path:'menu-admin',
@@ -24,8 +32,13 @@ const routes: Routes = [
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
   {
+    path: 'file',
+    loadChildren: ()=>import('../see-file/see-file.module').then(m =>m.SeeFileModule)
+  },
+
+  {
     path: '**',
-    redirectTo: 'auth',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   }
 ];

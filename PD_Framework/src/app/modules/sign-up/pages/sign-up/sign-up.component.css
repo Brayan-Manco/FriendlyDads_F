@@ -1,25 +1,23 @@
-.container {
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #858AE3;
 }
-
-.form-box {
+.register-box {
     position: relative;
     margin: 0%;
     width: 380px;
     height: 500px;
     /* box-shadow: 2px -2px 30px 3px black; */
-    border-radius: 8px;
+    /* border-radius: 8px; */
 }
 
-.form-b {
+.form {
     position: absolute;
     inset: 2px;
     border-radius: 8px;
-    background: #BEBCFC;
+    background: white;
     z-index: 10;
     padding: 50px 40px;
     display: flex;
@@ -105,10 +103,10 @@ select {
 }
 
 input[type="submit"] {
-    color: #93CAF6;
+    color: white;
     border: none;
     outline: none;
-    background: #321e8d;
+    background: #543fb1;
     padding: 11px 25px;
     width: 100%; 
     margin-top: 20px;

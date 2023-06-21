@@ -1,1 +1,45 @@
-<p>form-f works!</p>
+<div class="container">
+    <div class="form-f-box">
+        <form class="form">
+          <h1>Archivo</h1>
+          <div class="form-group">
+            <input type="text" id="titulo" name="titulo" required="required">
+            <span>Titulo:</span>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <input type="text" id="descripcion" name="descripcion" required="required">
+            <span>Descripcion:</span>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <select class="way">
+              <option value="tipo_documento" class="j">Clasificacion</option>
+              <option value="cedula" class="j"></option>
+              <option value="tarjeta_identidad" class="j"></option>
+              <option value="pasaporte" class="j"></option>
+              <option value="otro" class="j"></option>
+            </select>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <input type="date" id="fecha-creacion" name="fecha-creacion" required="required">
+            <span class="date">Fecha de creacion:</span>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <input type="date" id="fecha-modificacion" name="fecha-modificacion" required="required">
+            <span class="date">Fecha de modificacion:</span>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <input type="file" id="archivo" name="archivo" required="required">
+            <span class="date">Archivo:</span>
+            <i></i>
+          </div>
+          <input type="submit" value="Subir">
+        </form>
+      </div>
+</div>
+
+
