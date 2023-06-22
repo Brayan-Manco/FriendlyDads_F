@@ -14,7 +14,7 @@ export class cuentaService {
 
   constructor(private http : HttpClient) { 
     this.myAppUrl = enviroment.endpoint;
-    this.myApiUrl = 'api/cuenta/'
+    this.myApiUrl = 'api/cuenta'
   }
 
   signIn (cuenta: Cuenta):Observable<any>{
