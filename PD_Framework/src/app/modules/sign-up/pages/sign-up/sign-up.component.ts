@@ -5,6 +5,7 @@ import { cuentaService } from '../../services/services.service';
 
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -13,13 +14,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  titularAlerta: string=''
 
   usuario: string = '';
   correo: string = '';
   contrasena: string = '';
   confirmContrasena: string = '';
   fk_id_rol: number = 2;
+
+  loading: boolean = false;
 
   constructor(private _cuentaService: cuentaService,
     private router: Router){
@@ -29,7 +31,7 @@ export class SignUpComponent implements OnInit {
   addCuenta(){
 
 
-    if(this.usuario == '' || this.correo == '' || this.contrasena || this.confirmContrasena == ''){
+    if(this.usuario == '' || this.correo == '' || this.contrasena == '' || this.confirmContrasena == ''){
       
       Swal.fire({icon: 'error',
       title: 'Oops...',
@@ -51,14 +53,34 @@ export class SignUpComponent implements OnInit {
       fk_id_rol: this.fk_id_rol
     }
 
-    this._cuentaService.signIn(cuenta).subscribe(data =>{
-      Swal.fire({icon: 'success',
-      title: 'Cuenta creada',
-      text: 'Ya puedes navegar con nosotros'})
-      this.router.navigate(['/auth'])
-    })
-    console.log(cuenta)
 
+    this.loading = true;
+    this._cuentaService.signIn(cuenta).subscribe({
+      next: (v) =>{
+        Swal.fire({icon: 'success',
+        title: 'Cuenta creada',
+        text: 'Ya puedes navegar con nosotros'})
+        this.router.navigate(['/auth'])
+        },
+      
+      error: (e: HttpErrorResponse) => {
+        this.loading = false;
+        this.msjError(e);
+      },
+      complete: ()=> console.info('complete')
+    })
+  }
+
+  msjError(e: HttpErrorResponse){
+    if(e.error.msg){
+      Swal.fire({icon: 'error',
+      title: 'Oops...',
+      text: `${e.error.msg}`})
+    }else{
+      Swal.fire({icon: 'error',
+      title: 'Oops...',
+      text: 'Ha ocurrido un error, por favor comuniquese con el adminstrador'})
+    }
   }
 
   ngOnInit(): void {

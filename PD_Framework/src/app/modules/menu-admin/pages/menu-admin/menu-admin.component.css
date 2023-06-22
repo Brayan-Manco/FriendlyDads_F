@@ -15,6 +15,52 @@ th, td {
     padding: 10px;
     text-align: center;
 }
+
+.custom-link-left {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-link-left:hover {
+    background-color: #ccc;
+  }
+.custom-link-left {
+    align-items: center;
+
+}
+
+.custom-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-link:hover {
+    background-color: #ccc;
+  }
+  
+.color1 {
+    background: red;
+    color: whitesmoke;
+}
+
+.color2 {
+    background: rgb(41, 26, 96);
+    color: whitesmoke;
+}
+
 table thead {
     border-radius: 10px;
     background-color: #2d2e4a; 

@@ -1,34 +1,31 @@
 <div class="container">
-    <div class="from-box">
-        <div class="form-b">
-              <h1>Formulario bebé</h1>
-              <div class="form-group">
-                <input type="text" required="required">
-                <span>Nombre Completo</span>
-                <i></i>
-              </div>
-                    <div class="form-group">
-                        <select class="way">
-                            <option value="tipo_documento" class="j">Tipo documento</option>
-                            <option value="registro_civil" class="j">Registro civil</option>
-                            <option value="tarjeta_identidad" class="j">Tarjeta de Identidad</option>
-                            <option value="pasaporte" class="j">Pasaporte</option>
-                            <option value="otro" class="j">Otro</option>
-                        </select>
-                        <i></i>
-                        </div>
-                <div class="form-group">
-                    <input type="text" required="required">
-                    <span>Número de identificación</span>
-                    <i></i>
-                </div>
-                <div class="form-group">
-                    <input type="number" required="required">
-                    <span>Meses</span>
-                    <i></i>
-                </div>
-                  <input type="submit" value="Enviar">  
-        </div>
-    </div>
-</div>
-
+    <div class="login-box">
+        <form class="form">
+          <h1>Formulario del bebe</h1>
+          <div class="form-group">
+            <input type="text" id="titulo" name="titulo" required="required">
+            <span>Nombre proximo del bebé</span>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <select class="way">
+                <option value="tipo_documento" class="j">Tipo documento</option>
+                <option value="Madre" class="j">Cedula</option>
+                <option value="Padre" class="j">Targeta de identida</option>
+            </select>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <input type="text" id="fecha-creacion" name="fecha-creacion" required="required">
+            <span class="date">Numero</span>
+            <i></i>
+          </div>
+          <div class="form-group">
+            <input type="text" id="fecha-modificacion" name="fecha-modificacion" required="required">
+            <span class="date">Meses</span>
+            <i></i>
+          </div>
+          <input type="submit" value="Guardar">
+        </form>
+      </div>
+  </div>

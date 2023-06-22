@@ -8,6 +8,8 @@ import { FormBComponent } from './components/form-b/form-b.component';
 import { FormPComponent } from './components/form-p/form-p.component';
 import { FormFComponent } from './components/form-f/form-f.component';
 import { RouterModule } from '@angular/router';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ClasiComponent } from './components/clasi/clasi.component';
 
 
 
@@ -18,7 +20,9 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     FormBComponent,
     FormPComponent,
-    FormFComponent
+    FormFComponent,
+    SpinnerComponent,
+    ClasiComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +34,7 @@ import { RouterModule } from '@angular/router';
     FormBComponent,
     FormPComponent,
     FormFComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
 export interface Cuenta{
-    usuario: string,
+    usuario: string | null,
     correo: string,
     contrasena: string,
-    fk_id_rol: number
+    fk_id_rol: number | null
 }
