@@ -1,5 +1,4 @@
 export interface Cuenta{
-    id_cuenta: number,
     usuario: string,
     correo: string,
     contrasena: string,

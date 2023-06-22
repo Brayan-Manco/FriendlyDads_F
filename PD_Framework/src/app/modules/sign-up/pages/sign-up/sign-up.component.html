@@ -3,26 +3,26 @@
         <div class="form">
               <h1>Registro</h1>
               <div class="form-group">
-                <input type="text" required="required">
+                <input type="text" [(ngModel)]="usuario" required="required">
                 <span>Usuario</span>
                 <i></i>
               </div>
                 <div class="form-group">
-                    <input type="email" required="required">
+                    <input type="email" [(ngModel)]="correo" required="required">
                     <span>Correo</span>
                     <i></i>
                 </div>
                 <div class="form-group">
-                    <input type="password" required="required">
+                    <input type="password" [(ngModel)]="contrasena" required="required">
                     <span>Contraseña</span>
                     <i></i>
                 </div>
                 <div class="form-group">
-                    <input type="password" required="required">
+                    <input type="password" [(ngModel)]="confirmContrasena" required="required">
                     <span>Confirmar contraseña</span>
                     <i></i>
                 </div>
-                <input type="submit" value="Registrarse">  
+                <input type="submit" (click)="addCuenta()" value="Registrarse">  
         </div>
     </div>
 </div>
