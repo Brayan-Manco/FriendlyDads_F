@@ -29,20 +29,20 @@ export class SignUpComponent implements OnInit {
   addCuenta(){
 
 
-    // if(this.usuario == '' || this.correo == '' || this.contrasena || this.confirmContrasena == ''){
+    if(this.usuario == '' || this.correo == '' || this.contrasena || this.confirmContrasena == ''){
       
-    //   Swal.fire({icon: 'error',
-    //   title: 'Oops...',
-    //   text: 'Todos los campos son requeridos!'})
-    //   return;
-    // } 
+      Swal.fire({icon: 'error',
+      title: 'Oops...',
+      text: 'Todos los campos son requeridos!'})
+      return;
+    } 
 
-    // if(this.contrasena != this.confirmContrasena){
-    //   Swal.fire({icon: 'error',
-    //   title: 'Oops...',
-    //   text: 'La contraseña no coincide'})
-    //   return;
-    // }
+    if(this.contrasena != this.confirmContrasena){
+      Swal.fire({icon: 'error',
+      title: 'Oops...',
+      text: 'La contraseña no coincide'})
+      return;
+    }
 
     const cuenta: Cuenta = {
       usuario: this.usuario,
