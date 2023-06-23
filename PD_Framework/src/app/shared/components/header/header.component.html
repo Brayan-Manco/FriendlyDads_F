@@ -5,9 +5,9 @@
     <button class="header__toggle" (click)="toggleNav()">Menú</button>
     <nav class="header__nav" [ngClass]="{ 'active': isNavOpen }">
         <ul>
-            <li><a href="" routerLink="/inicio">Inicio</a></li>
-            <li><a href="" routerLink="/sign-up">Registrarse</a></li>
-            <li><a href="" routerLink="/auth">Iniciar Sesion</a></li>
+            <li><a class="item" routerLink="/inicio">Inicio</a></li>
+            <li><a class="item" routerLink="/sign-up">Registrarse</a></li>
+            <li><a class="item" routerLink="/auth">Iniciar Sesion</a></li>
         </ul>
     </nav>
 </header>
