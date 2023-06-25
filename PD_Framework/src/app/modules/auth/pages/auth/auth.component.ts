@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Cuenta } from 'src/app/interfaces/tbl_cuenta';
 import Swal from 'sweetalert2';
 import { cuentaService } from '../../services/services.service';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/interfaces/tbl_cuenta';
 
 @Component({
   selector: 'app-auth',
@@ -10,10 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  usuario: string='' 
+  
   correo: string ='';
   contrasena: string= '';
-  fk_id_rol!: number;
 
   constructor(private _cuentaService: cuentaService,
     private router: Router ){}
@@ -29,20 +28,19 @@ export class AuthComponent implements OnInit {
       });
     }
 
-    const cuenta: Cuenta = {
-      usuario: this.usuario,
+    const login: Login = {
       correo: this.correo,
       contrasena: this.contrasena,
-      fk_id_rol: this.fk_id_rol
-
     }
 
-    this._cuentaService.login(cuenta).subscribe({
-      next: (data) => {
+    // localStorage.setItem('fk_id_rol', datos.fk_id_rol.toString());
+    // const rol = localStorage.setItem('data', data.fk_id_rol)
+    this._cuentaService.login(login).subscribe({
+      next: (token) => {
         this.router.navigate(['/menu'])
-        console.log(data);
-
-      }
-    })
-  }
+        localStorage.setItem('token', token);
+        console.log(token)
+        }
+      })
+    }
 }
