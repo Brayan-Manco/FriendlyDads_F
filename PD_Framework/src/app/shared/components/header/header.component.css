@@ -21,15 +21,11 @@
 .header__nav ul li {
     margin-right: 20px;
     /* background: red; */
-    height: 50px;
     border-radius: 5px;
     transition: background-color 0.3s;
 
 }
 
-.header__nav ul li:hover {
-    background-color:#4c39a3 ;
-}
 
 .header__nav ul li a {
     color: #fff;
@@ -37,9 +33,7 @@
 }
 
 
-a {
-    font-size: 20px;
-}
+
 
 
 
