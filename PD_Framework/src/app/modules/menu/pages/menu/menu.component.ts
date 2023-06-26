@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClasiService } from '../../services/clasi.service';
+import { Clasificacion } from 'src/app/interfaces/tbl_clasificacion';
 
 @Component({
   selector: 'app-menu',
@@ -8,12 +9,14 @@ import { ClasiService } from '../../services/clasi.service';
 })
 export class MenuComponent implements OnInit{
 
+    listClasi: Clasificacion[] = [];
+
+    constructor(private _clasiService: ClasiService){}
+
     ngOnInit(): void {
         this.getClasi();
     }
-    
 
-    constructor(private _clasiService: ClasiService){}
 
     getClasi(){
         this._clasiService.getClasi().subscribe(data => {
