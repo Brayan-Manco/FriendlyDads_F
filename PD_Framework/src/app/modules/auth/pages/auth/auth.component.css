@@ -2,9 +2,8 @@
     margin-top: 60px;
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
-    margin-right: 100px;
     background-color: #BEBCFC;
+    border-radius: 25px;
   }
   
   .left-section,
@@ -16,6 +15,7 @@
   .left-section {
     margin-top: 0;
     background-color: #BEBCFC;
+    border-radius: 25px;
     margin-bottom: 25px;
   }
   
@@ -81,6 +81,16 @@
   @media (min-width: 768px) {
     .container {
       flex-direction: row;
+      
     }
+    .form-group input {
+      border: 1px solid #ccc;
+    }
+
+  .left-section,
+  .right-section {
+    width: 200px;
+    width: 200px;
+  }
   }
   
