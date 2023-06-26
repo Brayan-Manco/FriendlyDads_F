@@ -33,12 +33,10 @@ export class AuthComponent implements OnInit {
       contrasena: this.contrasena,
     }
 
-    // localStorage.setItem('fk_id_rol', datos.fk_id_rol.toString());
-    // const rol = localStorage.setItem('data', data.fk_id_rol)
     this._cuentaService.login(login).subscribe({
       next: (token) => {
-        this.router.navigate(['/menu'])
         localStorage.setItem('token', token);
+        this.router.navigate(['/menu'])
         console.log(token)
         }
       })
