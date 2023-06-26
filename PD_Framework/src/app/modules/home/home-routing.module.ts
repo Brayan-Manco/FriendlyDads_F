@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormBComponent } from 'src/app/shared/components/form-b/form-b.component';
-import { FormFComponent } from 'src/app/shared/components/form-f/form-f.component';
-import { FormPComponent } from 'src/app/shared/components/form-p/form-p.component';
+
 
 const routes: Routes = [
   {
@@ -39,16 +37,7 @@ const routes: Routes = [
     redirectTo: 'inicio',
     pathMatch: 'full'
   },
-
-  //componentes
   
-  { path:'form-f', component:FormFComponent },
-  { path:'form-b', component:FormBComponent },
-  { path:'form-p', component:FormPComponent },
-  // {
-  //   path:'clasi',
-  //   component:ClasiComponent
-  // }
 ];
 
 @NgModule({
