@@ -7,11 +7,11 @@
                 <span>Usuario</span>
                 <i></i>
               </div>
-                <div class="form-group">
-                    <input type="email" [(ngModel)]="correo" required="required">
-                    <span>Correo</span>
-                    <i></i>
-                </div>
+              <div class="form-group">
+                <input type="text" [(ngModel)]="correo" required="required">
+                <span>Correo</span>
+                <i></i>
+              </div>
                 <div class="form-group">
                     <input type="password" [(ngModel)]="contrasena" required="required">
                     <span>Contraseña</span>
@@ -25,10 +25,5 @@
                 <input type="submit" (click)="addCuenta()" value="Registrarse">  
         </div>
         <app-spinner *ngIf="loading"></app-spinner>
-    </div>
-    <div class="info-box">
-        <div class="info-form">
-            <h1>hola mundo</h1>
-        </div>
     </div>
 </div>
