@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-b',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./form-b.component.css']
 })
 export class FormBComponent {
+
+  
   
 }
