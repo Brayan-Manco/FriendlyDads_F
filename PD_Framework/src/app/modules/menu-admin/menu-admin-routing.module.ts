@@ -9,13 +9,7 @@ const routes: Routes = [
     component: MenuAdminComponent,
     outlet: 'home'
   },
-  {
-    path: '',
-    component: FormFComponent,
-  }
 ];
-
-
 
 
 @NgModule({
