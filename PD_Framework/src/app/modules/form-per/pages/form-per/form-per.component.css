@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
-  
-  .login-box {
+}
+
+.login-box {
 
     position: relative;
     margin-top: 60px;
@@ -19,23 +19,22 @@
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-  }
-  
-  
-  h1 {
+}
+
+h1 {
     color: #321e8d;
     font-weight: 500;
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     position: relative;
     margin-bottom: 20px;
     width: 100%; 
-  }
-  
-  .way {
+}
+
+.way {
     display: block;
     width: 100%;
     padding: 10px;
@@ -45,15 +44,15 @@
     color: #321e8d;
     font-size: 1em;
     letter-spacing: 0.05em;
-  }
-  
-  select.way {
+}
+
+select.way {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-  }
-  
-  .form-group input,
+}
+
+.form-group input,
 .form-group select {
     width: 100%;
     padding: 10px;
