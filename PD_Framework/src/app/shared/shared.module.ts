@@ -9,7 +9,6 @@ import { FormPComponent } from './components/form-p/form-p.component';
 import { FormFComponent } from './components/form-f/form-f.component';
 import { RouterModule } from '@angular/router';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { ClasiComponent } from './components/clasi/clasi.component';
 
 
 
@@ -22,7 +21,6 @@ import { ClasiComponent } from './components/clasi/clasi.component';
     FormPComponent,
     FormFComponent,
     SpinnerComponent,
-    ClasiComponent
   ],
   imports: [
     CommonModule,
