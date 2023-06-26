@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClasiComponent } from 'src/app/shared/components/clasi/clasi.component';
+import { FormBComponent } from 'src/app/shared/components/form-b/form-b.component';
+import { FormFComponent } from 'src/app/shared/components/form-f/form-f.component';
+import { FormPComponent } from 'src/app/shared/components/form-p/form-p.component';
 
 const routes: Routes = [
   {
@@ -31,16 +35,31 @@ const routes: Routes = [
     path:'search',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
-  // {
-  //   path: 'file',
-  //   loadChildren: ()=>import('../file/file.module').then(m =>m.FileModule)
-  // },
-
   {
     path: '**',
     redirectTo: 'inicio',
     pathMatch: 'full'
+  },
+
+  //componentes
+  {
+    path:'form-f',
+    component:FormFComponent,
+  },
+  {
+    path:'form-b',
+    component:FormBComponent
+  },
+  {
+    path:'form-p',
+    component:FormPComponent
+  },
+  {
+    path:'clasi',
+    component:ClasiComponent
   }
+
+
 ];
 
 @NgModule({
