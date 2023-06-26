@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class MenuAdminComponent {
   
+  
   constructor(private router:Router){}
 
   navigateTo(){
