@@ -13,12 +13,12 @@ export class HeaderComponent {
     this.isNavOpen = !this.isNavOpen;
   }
 
-  constructor (private router: Router) {}
+  // constructor (private router: Router) {}
 
-  logOut(){
-    localStorage.removeItem('token');
-    this.router.navigate(['/login'])
-  }
+  // logOut(){
+  //   localStorage.removeItem('token');
+  //   this.router.navigate(['/login'])
+  // }
 }
 
 
