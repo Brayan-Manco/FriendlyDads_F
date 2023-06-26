@@ -17,7 +17,8 @@
   }
   .tarjeta {
     display: flex;
-    background-color: #BEBCFC;
+    /* background-color: #BEBCFC; */
+    background-color: white;
     border-radius: 5px;
     padding: 10px;
     text-decoration: none;
@@ -37,6 +38,7 @@
     border-radius: 5px;
   }
   @media (min-width: 768px) {
+    
     .tarjeta {
       max-width: 900px; /* Ajusta el ancho máximo de la tarjeta según tus necesidades */
       margin-left: 230px; /* Mueve la tarjeta a la derecha en pantallas más grandes */

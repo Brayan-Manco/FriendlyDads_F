@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-admin',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class MenuAdminComponent {
 
+  constructor(private router: Router){}
+
+  navigateTo(){
+    this.router.navigate(['/form-b'])
+  }
 }
