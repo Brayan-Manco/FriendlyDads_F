@@ -43,7 +43,7 @@ const routes: Routes = [
   //componentes
   {
     path:'form-f',
-    component:FormFComponent,
+    component:FormFComponent
   },
   {
     path:'form-b',
@@ -57,8 +57,6 @@ const routes: Routes = [
   //   path:'clasi',
   //   component:ClasiComponent
   // }
-
-
 ];
 
 @NgModule({
