@@ -17,7 +17,8 @@
   }
   .tarjeta {
     display: flex;
-    background-color: #BEBCFC;
+    /* background-color: #BEBCFC; */
+    background-color: white;
     border-radius: 5px;
     padding: 10px;
     text-decoration: none;

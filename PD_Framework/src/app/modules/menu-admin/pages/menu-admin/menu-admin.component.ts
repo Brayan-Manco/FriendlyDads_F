@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu-admin.component.css']
 })
 export class MenuAdminComponent {
-  
-  constructor(private router:Router){}
+
+  constructor(private router: Router){}
 
   navigateTo(){
     this.router.navigate(['/form-b'])

@@ -5,11 +5,11 @@ import { FormFComponent } from 'src/app/shared/components/form-f/form-f.componen
 import { FormPComponent } from 'src/app/shared/components/form-p/form-p.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'inicio',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'inicio',
+  //   pathMatch: 'full'
+  // },
   {
     path:'inicio',
     loadChildren: ()=>import('../inicio/inicio.module').then(m =>m.InicioModule)
@@ -34,25 +34,17 @@ const routes: Routes = [
     path:'search',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
-  {
-    path: '**',
-    redirectTo: 'inicio',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'inicio',
+  //   pathMatch: 'full'
+  // },
 
   //componentes
-  {
-    path:'form-f',
-    component:FormFComponent
-  },
-  {
-    path:'form-b',
-    component:FormBComponent
-  },
-  {
-    path:'form-p',
-    component:FormPComponent
-  },
+  
+  { path:'form-f', component:FormFComponent },
+  { path:'form-b', component:FormBComponent },
+  { path:'form-p', component:FormPComponent },
   // {
   //   path:'clasi',
   //   component:ClasiComponent
