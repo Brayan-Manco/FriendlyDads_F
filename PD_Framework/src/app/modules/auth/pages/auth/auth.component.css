@@ -17,6 +17,7 @@
     margin-top: 0;
     background-color: #BEBCFC;
     margin-bottom: 25px;
+  
   }
   
   .right-section {
@@ -82,5 +83,13 @@
     .container {
       flex-direction: row;
     }
+  }
+
+  h2{
+    color:#553eba
+  }
+  
+  label{
+    color: #553eba;
   }
   

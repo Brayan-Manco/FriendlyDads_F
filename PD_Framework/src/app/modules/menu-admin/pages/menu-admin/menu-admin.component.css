@@ -1,6 +1,6 @@
 .table-container {
     border-radius: 10px;
-    background-color: #454776;
+    background-color: #553eba;
     color: aliceblue;
     display: flex;
     margin: 60px;
@@ -63,7 +63,7 @@ th, td {
 
 table thead {
     border-radius: 10px;
-    background-color: #2d2e4a; 
+     
 }
 
 @media (max-width: 600px) {
@@ -71,4 +71,8 @@ table thead {
         display: block;
         width: 100%;
     }
+}
+
+i{
+    background-color: #553eba;
 }
