@@ -33,11 +33,27 @@ const routes: Routes = [
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
   {
+    path:'clasificacion',
+    loadChildren: ()=>import('../clasificacion/clasificacion.module').then(m =>m.ClasificacionModule)
+  },
+  {
+    path:'form-arch',
+    loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
+  },
+  {
+    path:'form-bebe',
+    loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
+  },
+  {
+    path:'form-per',
+    loadChildren: ()=>import('../form-per/form-per.module').then(m =>m.FormPerModule)
+  },
+  {
     path: '**',
     redirectTo: 'inicio',
     pathMatch: 'full'
   },
-  
+
 ];
 
 @NgModule({
