@@ -1,3 +1,5 @@
+
+
 .container{
     display: flex;
     justify-content: center;
@@ -5,12 +7,17 @@
     min-height: 100vh;
 }
 .register-box {
+    
     position: relative;
     margin: 0%;
     width: 380px;
     height: 500px;
     /* box-shadow: 2px -2px 30px 3px black; */
     /* border-radius: 8px; */
+}
+
+h1{
+    font-family: 'Fredoka', sans-serif;
 }
 
 .form {
@@ -21,6 +28,7 @@
     padding: 50px 40px;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
 }
 
 .info-box {
