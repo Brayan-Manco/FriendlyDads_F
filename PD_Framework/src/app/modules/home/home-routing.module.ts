@@ -31,10 +31,6 @@ const routes: Routes = [
     path:'search',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
-  {
-    path: 'file',
-    loadChildren: ()=>import('../file/file.module').then(m =>m.FileModule)
-  },
 
   {
     path: '**',

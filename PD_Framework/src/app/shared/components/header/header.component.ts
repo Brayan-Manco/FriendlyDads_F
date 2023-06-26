@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,13 @@ export class HeaderComponent {
 
   toggleNav() {
     this.isNavOpen = !this.isNavOpen;
+  }
+
+  constructor (private router: Router) {}
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login'])
   }
 }
 
