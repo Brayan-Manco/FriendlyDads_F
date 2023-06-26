@@ -21,6 +21,7 @@ main {
 
 form {
   text-align: center;
+  gap: 10px;
 }
 
 input[type="text"] {
@@ -28,7 +29,9 @@ input[type="text"] {
   border-radius: 4px;
   font-size: 16px;
   padding: 10px;
-  width: 70%;
+  width: 85%;
+  flex: 1;
+  
 }
 
 button[type="submit"] {
@@ -41,6 +44,7 @@ button[type="submit"] {
   padding: 10px 20px;
   transition: background-color 0.3s;
   margin-right: 10px;
+
 }
 
 button[type="submit"]:hover {
