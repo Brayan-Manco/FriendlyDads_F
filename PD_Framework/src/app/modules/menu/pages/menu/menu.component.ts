@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
+    constructor(){}
+
 //   constructor(private _clasiService: ClasiService){ }
 
 //   getClasi(){
