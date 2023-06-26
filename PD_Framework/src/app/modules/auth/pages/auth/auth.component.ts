@@ -4,6 +4,7 @@ import { cuentaService } from '../../services/services.service';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/interfaces/tbl_cuenta';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
   selector: 'app-auth',
@@ -17,7 +18,8 @@ export class AuthComponent implements OnInit {
   loading: boolean= false;
 
   constructor(private _cuentaService: cuentaService,
-    private router: Router ){}
+    private router: Router,
+    private _errorService: ErrorService ){}
 
   ngOnInit(): void {}
 
@@ -43,21 +45,9 @@ export class AuthComponent implements OnInit {
         console.log(token)
         },
         error:(e: HttpErrorResponse)=>{
-          this.msjError(e);
+          this._errorService.msjError(e);
           this.loading = false;
         }
       })
-    }
-
-    msjError(e: HttpErrorResponse){
-      if(e.error.msg){
-        Swal.fire({icon: 'error',
-        title: 'Oops...',
-        text: `${e.error.msg}`})
-      }else{
-        Swal.fire({icon: 'error',
-        title: 'Oops...',
-        text: 'Ha ocurrido un error, por favor comuniquese con el adminstrador'})
-      }
     }
 }

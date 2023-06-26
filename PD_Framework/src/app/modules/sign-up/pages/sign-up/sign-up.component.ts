@@ -6,6 +6,7 @@ import { cuentaService } from '../../services/services.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorService } from 'src/app/services/error.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class SignUpComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private _cuentaService: cuentaService,
-    private router: Router){
+    private router: Router,
+    private _errorService: ErrorService){
 
   }
 
@@ -65,23 +67,12 @@ export class SignUpComponent implements OnInit {
       
       error: (e: HttpErrorResponse) => {
         this.loading = false;
-        this.msjError(e);
+        this._errorService.msjError(e);
       },
       complete: ()=> console.info('complete')
     })
   }
 
-  msjError(e: HttpErrorResponse){
-    if(e.error.msg){
-      Swal.fire({icon: 'error',
-      title: 'Oops...',
-      text: `${e.error.msg}`})
-    }else{
-      Swal.fire({icon: 'error',
-      title: 'Oops...',
-      text: 'Ha ocurrido un error, por favor comuniquese con el adminstrador'})
-    }
-  }
 
   ngOnInit(): void {
     
