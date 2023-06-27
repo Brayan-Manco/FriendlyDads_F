@@ -40,13 +40,15 @@
   }
   
   .form-group {
-    margin-bottom: 15px;
-  }
+    position: relative;
+    width: 100%; 
+    margin-top: 35px;
+}
   
-  .form-group label {
+  /* .form-group label {
     display: block;
     margin-bottom: 5px;
-  }
+  } */
   
   .form-group input {
     width: 100%;
