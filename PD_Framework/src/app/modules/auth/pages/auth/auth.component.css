@@ -104,4 +104,17 @@
   label{
     color: #553eba;
   }
-  
+  span{
+    color: #553eba;
+  }
+p{
+  color: #553eba;
+}
+  a{
+    color: #321e8d;
+  }
+
+.containerr{
+  margin-top: 12px;
+  margin-left: 175px;
+}
