@@ -5,15 +5,18 @@
             <h2>Iniciar sesión</h2>
             <form>
               <div class="form-group">
-                <input type="text" [(ngModel)]="correo" required="required">
                 <span>Correo</span>
+                <input type="text" [(ngModel)]="correo" required="required">
                 <i></i>
               </div>
               <div class="form-group">
-                <input type="password" [(ngModel)]="contrasena" required="required">
                 <span>Contraseña</span>
+                <input type="password" [(ngModel)]="contrasena" required="required">
                 <i></i>
             </div>
+           <div class="containerr">
+            <p class="mensaje">¿No tienes cuenta? <a class="register" routerLink="/sign-up">¡Regístrate!</a></p>
+           </div>
             <br>
               <button type="submit" (click)="login()">Ingresar</button>
             </form>
