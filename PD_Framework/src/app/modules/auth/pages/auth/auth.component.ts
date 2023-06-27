@@ -17,6 +17,8 @@ export class AuthComponent implements OnInit {
   contrasena: string= '';
   loading: boolean= false;
 
+
+
   constructor(private _cuentaService: cuentaService,
     private router: Router,
     private _errorService: ErrorService ){}
@@ -51,3 +53,4 @@ export class AuthComponent implements OnInit {
       })
     }
 }
+

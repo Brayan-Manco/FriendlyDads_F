@@ -32,6 +32,8 @@ const routes: Routes = [
     path:'search',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
+
+  //formularios
   {
     path:'clasificacion',
     loadChildren: ()=>import('../clasificacion/clasificacion.module').then(m =>m.ClasificacionModule)

@@ -22,3 +22,4 @@ export class cuentaService {
     return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}`,login);
   }
 }
+

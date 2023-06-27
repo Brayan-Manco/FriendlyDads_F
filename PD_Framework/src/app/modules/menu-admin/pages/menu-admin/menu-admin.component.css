@@ -21,8 +21,8 @@ th, td {
 }
 
 .custom-link-left {
-    margin-top: 35px;
     display: inline-block;
+    margin-left: 25px;
     padding: 10px 20px;
     background-color: #eaeaea;
     color: #333;
