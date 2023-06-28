@@ -21,6 +21,6 @@ export class ClasiService {
     // const token  =localStorage.getItem('token')
     // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
     // return this.http.get<Clasificacion[]>(`${this.myAppUrl}${this.myApiUrl}`, {headers: headers});
-    return this.http.get<Clasificacion[]>(`${this.myAppUrl}${this.myApiUrl}`)
+    return this.http.get<Clasificacion[]>(`${this.myAppUrl}${this.myApiUrl}/find`)
   }
 }

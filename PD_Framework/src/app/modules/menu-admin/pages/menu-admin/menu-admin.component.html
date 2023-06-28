@@ -1,36 +1,40 @@
-<div class="bottons">
-    <a href="" routerLink="/form-arch" class="custom-link-left">Subir Contenido</a>
-    <a href="" routerLink="/clasificacion" class="custom-link-left">Nueva Clasificacion</a>
+<div class="container">
+    <div class="bottons">
+        <h1 class="tittle">Contenidos</h1>
+        <a href="" routerLink="/form-arch" class="custom-link-left">Subir Contenido</a>
+        <a href="" routerLink="/clasificacion" class="custom-link-left">Nueva Clasificacion</a>
+    </div>
+    <div class="table-container">  
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre del archivo</th>
+                    <th>Archivo</th>
+                    <th>Clasificasión</th>
+                    <th>Autor</th>
+                    <th>Fecha Cración</th>
+                    <th>Ultima modificación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listInfo">
+                    <th>{{item.id_info}}</th>
+                    <th>{{item.nombre}}</th>
+                    <th>{{item.archivo}}</th>
+                    <th>{{item.fk_id_clasificacion}}</th>
+                    <th>{{item.fk_id_admin}}</th>
+                    <th>{{item.fechaC}}</th>
+                    <th>{{item.fechaUp}}</th>
+                    <th>
+                            <a href=""class="custom-link color1">Eliminar</a>
+                            <a href="" class="custom-link color2">Actualizar</a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-<div class="table-container">  
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre del archivo</th>
-                <th>Archivo</th>
-                <th>Clasificasión</th>
-                <th>Autor</th>
-                <th>Fecha Cración</th>
-                <th>Ultima modificación</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>dato 1</th>
-                <th>dato 1</th>
-                <th>dato 1</th>
-                <th>dato 1</th>
-                <th>dato 1</th>
-                <th>dato 1</th>
-                <th>dato 1</th>
-                <th>
-                        <a href=""class="custom-link color1">Eliminar</a>
-                        <a href="" class="custom-link color2">Actualizar</a>
-                </th>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
 

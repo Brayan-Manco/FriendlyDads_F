@@ -31,7 +31,7 @@ export class AuthComponent implements OnInit {
         icon: 'error',
         title: 'Hay campos vacios',
         text: 'Digite todos los datos'
-      });
+      }); 
     }
 
     const login: Login = {
@@ -39,10 +39,12 @@ export class AuthComponent implements OnInit {
       contrasena: this.contrasena,
     }
 
+
     this.loading =true;
     this._cuentaService.login(login).subscribe({
       next: (token) => {
         localStorage.setItem('token', token);
+        // const rol = localStorage.getItem()
         this.router.navigate(['/menu'])
         console.log(token)
         },

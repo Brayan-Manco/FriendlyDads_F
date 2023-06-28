@@ -15,11 +15,11 @@ export class cuentaService {
 
   constructor(private http: HttpClient, private router:Router) {
     this.myAppUrl = enviroment.endpoint;
-    this.myApiUrl = 'api/cuenta/login'
+    this.myApiUrl = 'api/cuenta'
   }
 
   login(login: Login): Observable<string>{
-    return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}`,login);
+    return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}/login`,login);
   }
 }
 

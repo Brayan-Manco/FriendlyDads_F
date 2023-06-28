@@ -1,14 +1,26 @@
+.container {
+    margin-top: 50px ;
+    height: 450px;
+}
+
 .table-container {
-    
     border-radius: 10px;
     background-color: #553eba;
     color: aliceblue;
     display: flex;
-    margin: 110px;
+    margin-left: 110px;
+    margin-right: 110px;
     justify-content: center;
-    margin-top: 15%;
-    
-   
+}
+.bottons .tittle {
+    margin-right: 600px;
+    color: white;
+}
+
+.bottons{
+    display: flex;
+    justify-content: right;
+    margin-right: 110px;
 }
 
 table {
@@ -22,7 +34,6 @@ th, td {
 
 .custom-link-left {
     display: inline-block;
-    margin-left: 25px;
     padding: 10px 20px;
     background-color: #eaeaea;
     color: #333;

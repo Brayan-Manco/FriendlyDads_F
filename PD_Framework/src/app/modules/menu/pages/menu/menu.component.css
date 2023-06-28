@@ -4,6 +4,12 @@
     font-family: Arial, sans-serif;
     background-color: #858AE3;
   }
+
+  .container h1{
+    color: white;
+    margin-left: 47%;
+    margin-top: 50px;
+  }
   
   
   /* Estilos para el formulario y las tarjetas */
@@ -24,7 +30,7 @@
     text-decoration: none;
     color: #321e8d;
     transition: background-color 0.3s;
-    margin-top: 90px;
+    margin-top: 20px;
   }
   
   

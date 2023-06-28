@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Info } from 'src/app/interfaces/tbl_informacion';
 
 @Component({
   selector: 'app-menu-admin',
@@ -8,9 +9,44 @@ import { Router } from '@angular/router';
 })
 export class MenuAdminComponent {
 
-  constructor(private router: Router){}
+  listInfo: Info[]=[{
+    id_info: 1,
+    nombre: 'nulo',
+    archivo: 'nulo',
+    fk_id_clasificacion: 1,
+    fk_id_admin: 1,
+    fechaC:'08-09-2023',
+    fechaUp: '08-09-2023' 
+  },
+  {
+    id_info: 1,
+    nombre: 'nulo',
+    archivo: 'nulo',
+    fk_id_clasificacion: 1,
+    fk_id_admin: 1,
+    fechaC:'08-09-2023',
+    fechaUp: '08-09-2023' 
+  },
+  {
+    id_info: 1,
+    nombre: 'nulo',
+    archivo: 'nulo',
+    fk_id_clasificacion: 1,
+    fk_id_admin: 1,
+    fechaC:'08-09-2023',
+    fechaUp: '08-09-2023' 
+  },
+  {
+    id_info: 1,
+    nombre: 'nulo',
+    archivo: 'nulo',
+    fk_id_clasificacion: 1,
+    fk_id_admin: 1,
+    fechaC:'08-09-2023',
+    fechaUp: '08-09-2023' 
+  },
+  ]
 
-  navigateTo(){
-    this.router.navigate(['/form-b'])
-  }
+  constructor(){}
+
 }

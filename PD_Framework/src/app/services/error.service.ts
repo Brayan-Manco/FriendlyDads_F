@@ -10,7 +10,6 @@ export class ErrorService {
   constructor (){
 
   }
-
   msjError(e: HttpErrorResponse){
     if(e.error.msg){
       Swal.fire({icon: 'error',

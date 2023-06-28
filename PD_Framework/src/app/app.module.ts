@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// import { AddTokenInterceptor } from './utils/add-token.interceptor';
+import { AddTokenInterceptor } from './utils/add-token.interceptor';
 
 
 @NgModule({
@@ -17,11 +17,13 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  // providers: [
-  //   {provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}
-  // ],
+  providers: [
+    //obtine el token 
+    {provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

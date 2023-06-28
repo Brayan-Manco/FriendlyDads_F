@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ClasificacionRoutingModule } from './clasificacion-routing.module';
 import { ClasiComponent } from './pages/clasi/clasi.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ClasiComponent } from './pages/clasi/clasi.component';
   ],
   imports: [
     CommonModule,
-    ClasificacionRoutingModule
+    ClasificacionRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ClasificacionModule { }

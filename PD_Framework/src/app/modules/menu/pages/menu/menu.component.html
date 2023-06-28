@@ -1,17 +1,20 @@
 <div class="container">
-    <li class="container">
+    <h1>Temas</h1>
+    <li *ngFor="let item of listClasi" class="container">
         <div class="formulario">
           <a href="detalle.html" class="tarjeta">
             <div class="right">
-              <h2>Clasificación</h2>
+              <h2>{{ item.clasificacion }}</h2>
               <div class="informacion">
-                <p>Descripción:</p>
+                <p>{{ item.descripcion }}</p>
               </div>
             </div>
             <div class="left">
-              <img src="https://w0.peakpx.com/wallpaper/682/490/HD-wallpaper-ellie-the-last-of-us-the-last-of-us-part-2-the-last-of-us-2020-games.jpg">
+              <p>  {{ item.foto }} </p>
+              <!-- <img src="" alt=""> -->
             </div>
           </a>
         </div>
     </li>
 </div>
+<br><br><br><br><br>

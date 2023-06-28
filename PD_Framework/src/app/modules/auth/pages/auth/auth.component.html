@@ -5,18 +5,15 @@
             <h2>Iniciar sesión</h2>
             <form>
               <div class="form-group">
+                <input type="text" [(ngModel)]="correo" required="required" name="correo">
                 <span>Correo</span>
-                <input type="text" [(ngModel)]="correo" required="required">
                 <i></i>
               </div>
               <div class="form-group">
+                <input type="text" [(ngModel)]="contrasena" required="required" name="contrasena">
                 <span>Contraseña</span>
-                <input type="password" [(ngModel)]="contrasena" required="required">
                 <i></i>
             </div>
-           <div class="containerr">
-            <p class="mensaje">¿No tienes cuenta? <a class="register" routerLink="/sign-up">¡Regístrate!</a></p>
-           </div>
             <br>
               <button type="submit" (click)="login()">Ingresar</button>
             </form>
@@ -28,6 +25,6 @@
       </div>
       <app-spinner *ngIf="loading"></app-spinner>
       <br>
-      <br>
+
       
       
