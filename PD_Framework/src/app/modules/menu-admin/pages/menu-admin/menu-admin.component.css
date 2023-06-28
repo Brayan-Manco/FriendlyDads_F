@@ -1,6 +1,5 @@
 .container {
     margin-top: 50px ;
-    height: 450px;
 }
 
 .table-container {
@@ -8,27 +7,40 @@
     background-color: #553eba;
     color: aliceblue;
     display: flex;
-    margin-left: 110px;
-    margin-right: 110px;
+    margin-left: 30px;
+    margin-right: 30px;
     justify-content: center;
 }
-.bottons .tittle {
-    margin-right: 600px;
-    color: white;
+
+.buttons {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.bottons{
-    display: flex;
-    justify-content: right;
-    margin-right: 110px;
+.title {
+    margin-left: 25px;
+    font-size: 24px;
+}
+
+.custom-link {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
 }
 
 table {
     width: 100%;
     max-width: 100%;
     }
-th, td {
+
+th{
     padding: 10px;
+    text-align: center;
+}
+td {
     text-align: center;
 }
 
@@ -85,6 +97,19 @@ table thead {
     th, td {
         display: block;
         width: 100%;
+    }
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .custom-link {
+        margin: 0 10px;
+        font-size: 24px;
     }
 }
 

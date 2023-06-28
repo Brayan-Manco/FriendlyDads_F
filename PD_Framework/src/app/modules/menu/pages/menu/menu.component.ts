@@ -9,9 +9,9 @@ import { Clasificacion } from 'src/app/interfaces/tbl_clasificacion';
 })
 export class MenuComponent implements OnInit{
 
-    listClasi: Clasificacion[] = [{
+     listClasi : Clasificacion[] = [{
         id_clasificacion: 1,
-        clasificacion:'salud',
+        clasificacion:'estimulaicon teprana',
         descripcion:'consejos de salud',
         foto: 'nulo',
         
@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit{
         id_clasificacion: 4,
         clasificacion:'estimulaicon teprana',
         descripcion:'consejos de salud',
-        foto: 'nulo'
+        foto: 'nulo',
     },
     ];
 

@@ -1,52 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Info } from 'src/app/interfaces/tbl_informacion';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-menu-admin',
   templateUrl: './menu-admin.component.html',
   styleUrls: ['./menu-admin.component.css']
 })
-export class MenuAdminComponent {
+export class MenuAdminComponent implements OnInit {
 
-  listInfo: Info[]=[{
-    id_info: 1,
-    nombre: 'nulo',
-    archivo: 'nulo',
-    fk_id_clasificacion: 1,
-    fk_id_admin: 1,
-    fechaC:'08-09-2023',
-    fechaUp: '08-09-2023' 
-  },
-  {
-    id_info: 1,
-    nombre: 'nulo',
-    archivo: 'nulo',
-    fk_id_clasificacion: 1,
-    fk_id_admin: 1,
-    fechaC:'08-09-2023',
-    fechaUp: '08-09-2023' 
-  },
-  {
-    id_info: 1,
-    nombre: 'nulo',
-    archivo: 'nulo',
-    fk_id_clasificacion: 1,
-    fk_id_admin: 1,
-    fechaC:'08-09-2023',
-    fechaUp: '08-09-2023' 
-  },
-  {
-    id_info: 1,
-    nombre: 'nulo',
-    archivo: 'nulo',
-    fk_id_clasificacion: 1,
-    fk_id_admin: 1,
-    fechaC:'08-09-2023',
-    fechaUp: '08-09-2023' 
-  },
-  ]
+  ngOnInit(): void {
+    this.getListInfo()
+  }
 
-  constructor(){}
+  listInfo: Info[] = []
 
+  constructor( private _infoService: AdminService ){}
+
+  getListInfo(){
+    this._infoService.getListInfo().subscribe((data) =>{
+      this.listInfo = data;
+    })
+  }
+
+  deleteInfo(id_info: number){
+    this._infoService.deleteInfo(id_info).subscribe(data=>{
+      
+    })
+  }
 }
