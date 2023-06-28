@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormBebeRoutingModule } from './form-bebe-routing.module';
 import { FormBebeComponent } from './pages/form-bebe/form-bebe.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { FormBebeComponent } from './pages/form-bebe/form-bebe.component';
   ],
   imports: [
     CommonModule,
-    FormBebeRoutingModule
+    FormBebeRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class FormBebeModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Bebe } from 'src/app/interfaces/tbl_bebe';
 
 @Component({
@@ -7,8 +8,17 @@ import { Bebe } from 'src/app/interfaces/tbl_bebe';
   styleUrls: ['./form-bebe.component.css']
 })
 export class FormBebeComponent implements OnInit{
+  form: FormGroup;
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      nombre_completo: ['', Validators.required],
+      fk_id_tipo_doc: ['', Validators],
+      numero_i: ['', Validators.required],
+      edad: ['', Validators.required],
+      fk_id_usuario: ['', Validators]
+    })
+  }
 
   ngOnInit(): void {
     
