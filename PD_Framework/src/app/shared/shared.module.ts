@@ -4,6 +4,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     FooterComponent,
     HeaderComponent,
     SpinnerComponent,
+    ProgressBarComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   exports: [
     FooterComponent,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ProgressBarComponent
   ]
 })
 export class SharedModule { }
