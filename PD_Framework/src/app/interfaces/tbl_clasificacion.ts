@@ -9,3 +9,10 @@ export interface Clasi {
     id_clasificacion: number,
     clasificacion: string,
 }
+
+
+export interface Clasif{
+    foto: string,
+    clasificacion: string,
+    descripcion: string
+}
