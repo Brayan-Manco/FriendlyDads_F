@@ -1,33 +1,65 @@
 <div class="container">
     <div class="login-box">
-        <form class="form">
+        <form  [formGroup]="form" (ngSubmit)="addFile()" class="form">
             <h1>Archivo</h1>
         <div class="form-group">
-            <input  type="text" id="titulo" name="titulo" required="required">
-            <span>Titulo</span>
+            <input  formControlName="titulo" type="text" id="titulo" name="titulo">
+            <span class="title">Titulo</span>
             <i></i>
-        </div>
+            <span *ngIf="form.get('titulo')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
+        </div><br>
         <div class="form-group">
-            <input  type="text" id="descripcion" name="descripcion" required="required">
-            <span>Descripcion</span>
+            <input  formControlName="descripcion" type="text" id="descripcion" name="descripcion">
+            <span class="title">Descripcion</span>
             <i></i>
-        </div>
+            <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
+        </div><br>
         <div class="form-group">
-            <select class="way">
-              <option [value]="item.id_clasificacion" *ngFor="let item of listClasi" class="j">
+            <select formControlName="clasificacion"  class="way">
+              <option [value]="item.id_clasificacion" *ngFor="let item of listClasiOf" class="j">
                 {{ item.clasificacion }}
               </option>
             </select>
-            <span>Clasificación</span>
+            <span class="title">Clasificación</span>
             <i></i>
-          </div>
+            <span *ngIf="form.get('fk_id_clasificacion')?.hasError('required') && form.get('fk_id_clasificacion')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
+            </div><br>
+          <div class="form-group">
+            <select formControlName="admin" class="way">
+              <option [value]="item.id_admin" *ngFor="let item of listAdminOf" class="j">
+                {{ item.nombres }}
+              </option>
+            </select>
+            <span class="title">Autor</span>
+            <i></i>
+            <span *ngIf="form.get('fk_id_admin')?.hasError('required')  && form.get('fk_id_admin')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
+          </div><br>
         <div class="form-group">
-            <input type="file" id="archivo" name="archivo" required="required">
-            <span class="date">Archivo</span>
+            <input formControlName="archivo" type="file" id="archivo" name="archivo">
+            <span class="title">Archivo</span>
             <i></i>
+            <span *ngIf="form.get('archivo')?.hasError('required') && form.get('archivo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
-            <button>Subir</button>
-            <button>Volver</button>
+        <!-- <div class="form-group">
+            <input type="file" id="archivo" name="archivo" (change)="onFileSelected($event)" required>
+            <span class="title">Archivo</span>
+            <i></i>
+            <span *ngIf="form.get('archivo')?.hasError('required') && form.get('archivo')?.touched">
+                El campo es <strong>requerido </strong>
+            </span>
+        </div> -->
+            <button [disabled]="form.invalid"  type="submit">Subir</button>
+            <button routerLink="/menu-admin">Volver</button>
         </form>
     </div>
 </div>

@@ -45,7 +45,7 @@ export class AuthComponent implements OnInit {
       next: (token) => {
         localStorage.setItem('token', token);
         // const rol = localStorage.getItem()
-        this.router.navigate(['/menu'])
+        this.router.navigate(['/menu-admin'])
         console.log(token)
         },
         error:(e: HttpErrorResponse)=>{

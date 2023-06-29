@@ -14,3 +14,11 @@ export interface Info{
             nombres: string;
         };
 }
+
+export interface InfoCreate{
+    doc: File | undefined,
+    fk_id_clasificacion: number,
+    fk_id_admin: number;
+    nombre: string,
+    descripcion: string,
+}

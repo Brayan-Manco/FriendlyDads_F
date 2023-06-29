@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AdminCraate } from 'src/app/interfaces/tbl_administrador';
 import { Clasi } from 'src/app/interfaces/tbl_clasificacion';
+import { InfoCreate } from 'src/app/interfaces/tbl_informacion';
 import { enviroment } from 'src/enviroments/enviroments';
 
 @Injectable({
@@ -13,10 +15,19 @@ export class ArchService{
   private myApiUrl: String;
   constructor(private http: HttpClient) {
     this.myAppUrl = enviroment.endpoint;
-    this.myApiUrl = 'api/clasificacion'
-   }
+    this.myApiUrl = 'api'
+  }
 
-  getOption(): Observable<Clasi[]>{
-    return this.http.get<Clasi[]>(`${this.myAppUrl}${this.myApiUrl}/findClasi`)
+
+  getListInfo(): Observable<Clasi[]>{
+    return this.http.get<Clasi[]>(`${this.myAppUrl}${this.myApiUrl}/clasificacion/findClasi`)
+  }
+
+  getListAdmin(): Observable<AdminCraate[]>{
+    return this.http.get<AdminCraate[]>(`${this.myAppUrl}${this.myApiUrl}/admin/create`)
+  }
+
+  saveInfo(info: InfoCreate): Observable<void>{
+    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/info/create`,info)
   }
 }
