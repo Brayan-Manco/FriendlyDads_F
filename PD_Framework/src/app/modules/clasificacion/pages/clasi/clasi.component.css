@@ -12,7 +12,7 @@
     margin-top: 5px;
     width: 370px; 
     max-width: 100%;
-    height: 370px;
+    
     border-radius: 8px;
     background: whitesmoke;
     padding: 50px 40px;
@@ -122,4 +122,16 @@ input[type="submit"]:active {
     input[type="submit"] {
         width: 100%; 
     }
+}
+
+span{
+    color: #321e8d;
+}
+
+strong{
+    color: red;
+}
+
+#clasificacion{
+    color: #321e8d;
 }
