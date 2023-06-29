@@ -16,7 +16,7 @@ export interface Info{
 }
 
 export interface InfoCreate{
-    doc: File | undefined,
+    doc: File,
     fk_id_clasificacion: number,
     fk_id_admin: number;
     nombre: string,
