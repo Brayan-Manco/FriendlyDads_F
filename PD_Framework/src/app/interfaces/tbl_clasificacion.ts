@@ -4,3 +4,9 @@ export interface Clasificacion{
     clasificacion: string,
     descripcion: string
 }
+
+export interface Clasif{
+    foto: string,
+    clasificacion: string,
+    descripcion: string
+}
