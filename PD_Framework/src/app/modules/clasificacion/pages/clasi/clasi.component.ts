@@ -18,7 +18,6 @@ export class ClasiComponent implements OnInit{
       descripcion: ['', Validators.required]
     })
   }
-  
   ngOnInit(): void {
     
   }

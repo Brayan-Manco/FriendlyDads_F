@@ -10,6 +10,8 @@ import { ArchService } from '../../services/arch.service';
 })
 export class FormArchComponent implements OnInit{
 
+
+
   // form: FormGroup;
 
   // constructor(private fb: FormBuilder){
@@ -31,14 +33,12 @@ export class FormArchComponent implements OnInit{
 
   listClasi: Clasi[] = []
 
+  constructor (private _clasiInfo: ArchService){}
+
   getListClas(){
     this._clasiInfo.getOption().subscribe((data: Clasi[])=>{
       this.listClasi = data;
       console.log(data)
     })
   }
-
-  constructor (private _clasiInfo: ArchService){}
-
-
 }

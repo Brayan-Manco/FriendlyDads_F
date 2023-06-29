@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { FormArchRoutingModule } from './form-arch-routing.module';
 import { FormArchComponent } from './pages/form-arch/form-arch.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -11,9 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormArchComponent
   ],
   imports: [
-    CommonModule,
     FormArchRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ]
 })
 export class FormArchModule { }
