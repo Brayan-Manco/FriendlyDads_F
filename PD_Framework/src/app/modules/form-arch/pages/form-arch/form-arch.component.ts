@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Clasi } from 'src/app/interfaces/tbl_clasificacion';
+import { ArchService } from '../../services/arch.service';
 
 @Component({
   selector: 'app-form-arch',
@@ -22,8 +24,21 @@ export class FormArchComponent implements OnInit{
   //   })
   // }
 
+  
   ngOnInit(): void {
-    
+    this.getListClas();
   }
+
+  listClasi: Clasi[] = []
+
+  getListClas(){
+    this._clasiInfo.getOption().subscribe((data: Clasi[])=>{
+      this.listClasi = data;
+      console.log(data)
+    })
+  }
+
+  constructor (private _clasiInfo: ArchService){}
+
 
 }

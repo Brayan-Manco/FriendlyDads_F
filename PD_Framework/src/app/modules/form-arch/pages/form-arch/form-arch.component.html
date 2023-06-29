@@ -1,33 +1,30 @@
-<!-- <div class="container">
+<div class="container">
     <div class="login-box">
-        <form class="form" [FormGroup]="form">
+        <form class="form">
             <h1>Archivo</h1>
         <div class="form-group">
-            <input formControlName="titulo" type="text" id="titulo" name="titulo" required="required">
-            <span>Titulo:</span>
+            <input  type="text" id="titulo" name="titulo" required="required">
+            <span>Titulo</span>
             <i></i>
         </div>
         <div class="form-group">
-            <input formControlName="descripcion" type="text" id="descripcion" name="descripcion" required="required">
-            <span>Descripcion:</span>
+            <input  type="text" id="descripcion" name="descripcion" required="required">
+            <span>Descripcion</span>
             <i></i>
         </div>
         <div class="form-group">
-            <select formControl="clasificacion" class="way" aria-placeholder="clasificacion">
-                <option value="tipo_documento" class="j">Clasificacion</option>
-                <option value="cedula" class="j"></option>
-                <option value="tarjeta_identidad" class="j"></option>
-                <option value="pasaporte" class="j"></option>
-                <option value="otro" class="j"></option>
+            <select class="way" aria-placeholder="clasificacion">
+                <option *ngFor="let item of listClasi" value="item.id" class="j">{{item.clasificacion}}</option>
             </select>
             <i></i>
         </div>
         <div class="form-group">
-            <input formControlName="archivo" type="file" id="archivo" name="archivo" required="required">
-            <span class="date">Archivo:</span>
+            <input type="file" id="archivo" name="archivo" required="required">
+            <span class="date">Archivo</span>
             <i></i>
         </div>
-            <input type="submit" value="Subir">
+            <button>Subir</button>
+            <button>Volver</button>
         </form>
     </div>
-</div> -->
+</div>

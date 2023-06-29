@@ -4,7 +4,7 @@
         <a href="" routerLink="/form-arch" class="custom-link-left">Subir Contenido</a>
     </div>
     <div class="table-container">  
-        <table>
+        <table *ngIf="listInfo.length > 0">
             <thead>
                 <tr>
                     <th>Nombres</th>
@@ -33,6 +33,7 @@
                 </tr>
             </tbody>
         </table>
+        <h5 *ngIf="listInfo.length == 0">No hay contenidos subidos</h5>
     </div><br><br><br>
     <div class="bottons">
         <h1 class="title">clasificacion</h1>

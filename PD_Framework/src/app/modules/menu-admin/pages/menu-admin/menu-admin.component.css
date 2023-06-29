@@ -93,6 +93,11 @@ table thead {
      
 }
 
+h5{
+    align-items: center;
+    height: 30px;
+}
+
 @media (max-width: 600px) {
     th, td {
         display: block;

@@ -5,8 +5,8 @@ export interface Info{
     archivo: string;
     fk_id_clasificacion: string;
     fk_id_admin: string;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date;
+    updatedAt: Date;
     tbl_clasificacione: {
             clasificacion: string;
         };

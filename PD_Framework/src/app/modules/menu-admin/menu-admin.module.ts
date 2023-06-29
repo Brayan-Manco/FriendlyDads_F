@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MenuAdminRoutingModule } from './menu-admin-routing.module';
 import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
   ],
   imports: [
     CommonModule,
-    MenuAdminRoutingModule
+    MenuAdminRoutingModule,
+    SharedModule
   ]
 })
 export class MenuAdminModule { }

@@ -4,3 +4,8 @@ export interface Clasificacion{
     clasificacion: string,
     descripcion: string
 }
+
+export interface Clasi {
+    id_clasificacion: number,
+    clasificacion: string,
+}
