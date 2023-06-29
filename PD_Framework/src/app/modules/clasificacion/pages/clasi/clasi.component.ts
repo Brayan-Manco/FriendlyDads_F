@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Clasificacion, Clasif} from 'src/app/interfaces/tbl_clasificacion';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class ClasiComponent implements OnInit{
 
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
-      titulo: ['', Validators.required],
+      foto: ['',Validators.required],
+      clasificacion: ['', Validators.required],
       descripcion: ['', Validators.required]
     })
   }
@@ -22,6 +24,15 @@ export class ClasiComponent implements OnInit{
   }
 
   addClasi(){
-    console.log('Add clasi');
+    // console.log(this.form.value.titulo);
+
+    const clasi: Clasif ={
+      foto: this.form.value.foto,
+      clasificacion: this.form.value.clasificacion,
+      descripcion: this.form.value.descripcion
+    }
+
+    console.log(clasi)
+
   }
 }

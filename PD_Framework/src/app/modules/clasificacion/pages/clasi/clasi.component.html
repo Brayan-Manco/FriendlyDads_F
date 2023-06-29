@@ -1,18 +1,24 @@
 <div class="container">
     <div class="login-box">
         <form [formGroup]="form" (ngSubmit)="addClasi()" class="form" >
-            <h1>Nueva Clasificacion</h1><br>
-        <div class="form-group">
-            <input formControlName="titulo" type="text" id="titulo" name="titulo" required="required">
-            <span>Titulo</span>
-            <i></i>
-        </div>
-        <div class="form-group">
-            <input formControlName="descripcion" type="text" id="descripcion" name="descripcion" required="required">
-            <span>Descripcion</span>
-            <i></i>
-        </div>
-            <input type="submit" value="Guardar">
+            <h1>Nueva Clasificación</h1><br>
+            <div class="form-group">
+                <input formControlName="foto" type="file" id="foto" name="foto" required="required">
+                <i></i>
+            </div>
+            <div class="form-group">
+                <input formControlName="clasificacion" type="text" id="clasificacion" name="clasificacion" required="required" placeholder="Clasificación">
+                <i></i>
+            </div>
+            <span *ngIf="form.get('clasificacion')?.hasError('required') && form.get('clasificacion')?.touched">El campo clasificación es <strong>obligatorio</strong></span>
+            <div class="form-group">
+                <input formControlName="descripcion" type="text" id="descripcion" name="descripcion" required="required" placeholder="Descripción">
+                <i></i>
+            </div>
+            <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">El campo descripción es <strong>obligatorio</strong></span>
+            <div>
+                <button [disabled]="form.invalid" type="submit" class="btn">Guardar</button>
+            </div>
         </form>
     </div>
 </div>

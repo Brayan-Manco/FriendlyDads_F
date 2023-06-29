@@ -88,7 +88,7 @@ select.way {
     z-index: 9;
 }
 
-input[type="submit"] {
+.btn{
     color: whitesmoke;
     border: none;
     outline: none;
