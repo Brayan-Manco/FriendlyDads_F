@@ -1,9 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tipo_doc } from 'src/app/interfaces/tbl_tip_doc';
+import { enviroment } from 'src/enviroments/enviroments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BebeService {
 
-  constructor() { }
+  private myAppUrl: string;
+  private myApiUrl: string
+
+  constructor(private http: HttpClient) { 
+    this.myAppUrl = enviroment.endpoint;
+    this.myApiUrl = 'api'
+  }
+
+  getTipoDoc(): Observable<Tipo_doc[]>{
+    return this.http.get<Tipo_doc[]>(`${this.myAppUrl}${this.myApiUrl}/tipoDoc/obtener`)
+  }
 }

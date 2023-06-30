@@ -10,12 +10,12 @@
                 <input formControlName="clasificacion" type="text" id="clasificacion" name="clasificacion" required="required" placeholder="Clasificación">
                 <i></i>
             </div>
-            <span *ngIf="form.get('clasificacion')?.hasError('required') && form.get('clasificacion')?.touched">El campo clasificación es <strong>obligatorio</strong></span>
+            <span *ngIf="form.get('clasificacion')?.hasError('required') && form.get('clasificacion')?.touched">El campo clasificación es <strong>OBLIGATORIO</strong></span>
             <div class="form-group">
                 <input formControlName="descripcion" type="text" id="descripcion" name="descripcion" required="required" placeholder="Descripción">
                 <i></i>
             </div>
-            <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">El campo descripción es <strong>obligatorio</strong></span>
+            <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">El campo descripción es <strong>OBLIGATORIO</strong></span>
             <div>
                 <button [disabled]="form.invalid" type="submit" class="btn">Guardar</button>
             </div>
