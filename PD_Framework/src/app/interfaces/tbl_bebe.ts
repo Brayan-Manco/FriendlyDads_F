@@ -6,3 +6,10 @@ export interface Bebe{
     edad: string,
     fk_id_usuario: number
 }
+
+export interface baby{
+    
+    nombre_completo: string,
+    numero_i: string,
+    edad: string,
+}
