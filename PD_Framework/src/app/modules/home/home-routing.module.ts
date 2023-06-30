@@ -38,8 +38,16 @@ const routes: Routes = [
     path:'clasificacion',
     loadChildren: ()=>import('../clasificacion/clasificacion.module').then(m =>m.ClasificacionModule)
   },
+
+       //crear 
   {
     path:'form-arch',
+    loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
+  },
+
+       //editar con el componente de form-arch
+  {
+    path:'form-arch/:id',
     loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
   },
   {

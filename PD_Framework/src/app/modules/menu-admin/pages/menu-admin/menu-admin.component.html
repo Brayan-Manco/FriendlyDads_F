@@ -29,7 +29,7 @@
                     <td>{{ data.updatedAt }}</td>
                     <th>
                             <button (click)="deleteInfo(data.id_info)" class="custom-link color1">Eliminar</button>
-                            <button class="custom-link color2">Actualizar</button>
+                            <button  routerLink="/form-arch/{{ data.id_info}}" class="custom-link color2">Actualizar</button>
                     </th>
                 </tr>
             </tbody>

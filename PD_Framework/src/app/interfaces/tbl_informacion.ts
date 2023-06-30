@@ -22,3 +22,16 @@ export interface InfoCreate{
     nombre: string,
     descripcion: string,
 }
+
+export interface InfoUpdate{
+    nombre: string,
+    descripcion: string,
+    tbl_clasificacione: {
+        id_clasificacion: number,
+        descripcion: string
+    },
+    tbl_administradore: {
+        id_admin: string,
+        nombres: string
+    }
+}

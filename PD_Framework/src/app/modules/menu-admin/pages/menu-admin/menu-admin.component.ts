@@ -25,6 +25,7 @@ export class MenuAdminComponent implements OnInit {
   getListInfo(){
     this._infoService.getListInfo().subscribe((data: Info[]) =>{
       this.listInfo = data;
+      console.log(data)
     })
   }
 

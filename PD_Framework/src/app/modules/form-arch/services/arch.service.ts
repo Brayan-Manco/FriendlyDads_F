@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AdminCraate } from 'src/app/interfaces/tbl_administrador';
 import { Clasi } from 'src/app/interfaces/tbl_clasificacion';
-import { InfoCreate } from 'src/app/interfaces/tbl_informacion';
+import { Info, InfoCreate, InfoUpdate } from 'src/app/interfaces/tbl_informacion';
 import { enviroment } from 'src/enviroments/enviroments';
 
 @Injectable({
@@ -29,5 +29,9 @@ export class ArchService{
 
   saveInfo(info: InfoCreate): Observable<void>{
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/info/create`,info)
+  }
+
+  getInfo(id_info: number): Observable<InfoUpdate>{
+    return this.http.get<InfoUpdate>(`${this.myAppUrl}${this.myApiUrl}/info/findOneUpdate/${id_info}`)
   }
 }
