@@ -32,6 +32,10 @@ const routes: Routes = [
     path:'search',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
+  {
+    path:'perfil',
+    loadChildren: ()=>import('../perfil/perfil.module').then(m =>m.PerfilModule)
+  },
 
   //formularios
   {
@@ -50,6 +54,8 @@ const routes: Routes = [
     path:'form-arch/:id',
     loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
   },
+
+
   {
     path:'form-bebe',
     loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
