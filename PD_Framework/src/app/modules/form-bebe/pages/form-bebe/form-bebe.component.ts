@@ -50,7 +50,5 @@ export class FormBebeComponent implements OnInit{
       this.listTipoDoc =data;
     })
   }
-
-
 }
 
