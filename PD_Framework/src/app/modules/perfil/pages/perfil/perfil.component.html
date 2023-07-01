@@ -41,7 +41,10 @@
                     <li><button (click)="deleteBebe(item.id_bebe)">eliminar</button>  | <button routerLink="form-bebe/{{item.id_bebe}}">actualizar</button> </li>
                     <hr>
                 </div>
-                <br>
+                <div *ngIf="listBebe.length == 0">
+                    <li><h4>No hay datos</h4></li>
+                </div><br>
+                <button routerLink="/form-bebe/{{data.id_usuario}}">Agregar nuevo hijo</button> 
             </ul>
         </div>
         <!-- <div class="redes-sociales">

@@ -57,7 +57,7 @@ const routes: Routes = [
 
 
   {
-    path:'form-bebe',
+    path:'form-bebe/:id',
     loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
   },
     //editar con el componente de form-bebe

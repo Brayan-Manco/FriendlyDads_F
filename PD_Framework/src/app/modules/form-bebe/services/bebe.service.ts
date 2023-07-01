@@ -24,7 +24,7 @@ export class BebeService {
   
   saveFormbebe(Formbebe: baby ): Observable<void>{
 
-    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`,Formbebe)
+    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/bebe/create`,Formbebe)
 
   }
 }
