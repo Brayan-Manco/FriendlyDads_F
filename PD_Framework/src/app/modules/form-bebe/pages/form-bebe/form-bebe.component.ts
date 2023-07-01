@@ -40,15 +40,19 @@ export class FormBebeComponent implements OnInit{
 
       
   }
-  console.log(bebe)
+   this._babyService.saveFormbebe(bebe).subscribe(() => {})
+
+   console.log('!Bebe agregado¡ ');
 }
 
 
   getTipoDoc(){
     this._babyService.getTipoDoc().subscribe((data: Tipo_doc[]) => {
       console.log(data)
-      this.listTipoDoc =data;
+      this.listTipoDoc = data;
     })
   }
+
+
 }
 

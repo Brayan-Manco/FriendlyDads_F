@@ -8,7 +8,6 @@ export interface Bebe{
 }
 
 export interface baby{
-    
     nombre_completo: string,
     numero_i: string,
     edad: string,
