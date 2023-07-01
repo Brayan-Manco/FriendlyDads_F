@@ -8,7 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from 'src/app/services/error.service';
 import Swal from 'sweetalert2';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-form-arch',
@@ -21,6 +20,7 @@ export class FormArchComponent implements OnInit{
   loading: boolean = false;
   id_info: number;
   operacion: string= 'Agregar';
+  buttoAction: string= 'subir'
 
   constructor(private fb: FormBuilder, 
     private _infoService: ArchService,
@@ -38,7 +38,6 @@ export class FormArchComponent implements OnInit{
     })
     this.id_info = Number(aRouter.snapshot.paramMap.get('id'));
   }
-
   
   ngOnInit(): void {
     this.getListClasi();
@@ -47,6 +46,7 @@ export class FormArchComponent implements OnInit{
     if (this.id_info != 0) {
       //Es editar 
       this.operacion = 'Editar';
+      this.buttoAction =  'Actualizar'
       this.getProduct(this.id_info);
     }
   }
@@ -56,7 +56,12 @@ export class FormArchComponent implements OnInit{
     this._infoService.getInfo(id_info).subscribe((data: InfoUpdate)=>{
       console.log(data)
       this.loading = false;
-      this.form
+      this.form.patchValue({
+        titulo: data.nombre,
+        descripcion: data.descripcion,
+        clasificacion: data.tbl_clasificacione.id_clasificacion,
+        admin: data.tbl_administradore.id_admin
+      })
     })
   }
 
@@ -91,19 +96,42 @@ export class FormArchComponent implements OnInit{
       descripcion: this.form.value.descripcion
     }
 
-    this._infoService.saveInfo(info).subscribe({
-      next: (e) => {
-        this.loading = false;
-        Swal.fire({icon: 'success',
-        title: 'Exito!',
-        text: 'Contenido agregado con exito'})
-        // const rol = localStorage.getItem()
-        this.router.navigate(['/menu-admin'])
-        },
-        error:(e: HttpErrorResponse)=>{
-          this._errorService.msjError(e);
+    if(this.id_info !== 0){
+
+      //es editar
+      this.loading = true;
+      info.id_info = this.id_info;
+      this._infoService.updateInfo(this.id_info, info).subscribe({
+        next: (e) => {
           this.loading = false;
-        }
-    })
+          Swal.fire({icon: 'success',
+          title: 'Exito!',
+          text: 'Contenido actualizado con exito'})
+          this.router.navigate(['/menu-admin'])
+          },
+          error:(e: HttpErrorResponse)=>{
+            this._errorService.msjError(e);
+            this.loading = false;
+          }
+        })
+    }else{
+
+      //es agregar
+      this.loading= true;
+      this._infoService.saveInfo(info).subscribe({
+        next: (e) => {
+          this.loading = false;
+          Swal.fire({icon: 'success',
+          title: 'Exito!',
+          text: 'Contenido agregado con exito'})
+          // const rol = localStorage.getItem()
+          this.router.navigate(['/menu-admin'])
+          },
+          error:(e: HttpErrorResponse)=>{
+            this._errorService.msjError(e);
+            this.loading = false;
+          }
+        })
+    }
   }
 }

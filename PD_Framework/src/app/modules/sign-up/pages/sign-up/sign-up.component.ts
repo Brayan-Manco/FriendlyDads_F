@@ -15,7 +15,6 @@ import { ErrorService } from 'src/app/services/error.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
   usuario: string = '';
   correo: string = '';
   contrasena: string = '';

@@ -12,24 +12,36 @@
             </button> -->
         </div>
     </div>
-    <div class="perfil-usuario-body">
-        <div class="perfil-usuario-bio">
-            <h3 class="titulo">Maria Alejandra De la Cruz</h3>
-            <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div *ngFor="let data of listUser" class="perfil-usuario-body">
+        <div  class="perfil-usuario-bio">
+            <!-- <h3 class="titulo">Maria Alejandra De la Cruz</h3> -->
+            <h3 class="titulo">{{data.tbl_cuentum.usuario}}</h3>
+            <p class="texto">{{data.tbl_cuentum.correo}}</p>
         </div>
         <div class="perfil-usuario-footer">
-            <ul class="lista-datos">
-                <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
-                <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
-                <li><i class="icono fas fa-briefcase"></i> Trabaja en.</li>
-                <li><i class="icono fas fa-building"></i> Cargo</li>
+            <ul *ngIf="data" class="lista-datos">
+                <h4>Datos personales</h4><br>
+                <li>  <strong>Nombre: </strong> {{data.nombres}} {{data.apellidos}} </li>
+                <li>  <strong>Edad: </strong> {{data.edad}}</li>
+                <li>  <strong>Documento: </strong>{{data.numero_i}}</li>
+                <li>  <strong>Tipo Documento: </strong>{{data.tbl_tipo_doc.tipo_doc}}</li>
+                <li>  <strong>Posisción en la familia: </strong>{{data.tbl_parentesco.parentesco}}</li>
+                <li>  <strong> Estado: </strong>{{data.tbl_estado.estado}} </li>
+                <li> <a href="" routerLink="/form-per/{{data.id_usuario}}">Actualizar Datos</a> </li>
+            </ul>
+            <ul *ngIf="listUser.length === 0" class="lista-datos">
+                <h4>No hay datos agregados</h4><br>
+                <li><a href="" routerLink="/form-per/{{data.id_usuario}}">Agregar datos personales</a> </li>
             </ul>
             <ul class="lista-datos">
-                <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
-                <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.</li>
-                <li><i class="icono fas fa-user-check"></i> Registro.</li>
-                <li><i class="icono fas fa-share-alt"></i> Redes sociales.</li>
+                <h4>Bebes</h4><br>
+                <div *ngFor="let item of listBebe">
+                    <li><strong>nombre: </strong>{{item.nombre_completo}}</li>
+                    <li><strong>Edad: </strong>{{item.edad}}  </li>
+                    <li><button (click)="deleteBebe(item.id_bebe)">eliminar</button>  | <button routerLink="form-bebe/{{item.id_bebe}}">actualizar</button> </li>
+                    <hr>
+                </div>
+                <br>
             </ul>
         </div>
         <!-- <div class="redes-sociales">
