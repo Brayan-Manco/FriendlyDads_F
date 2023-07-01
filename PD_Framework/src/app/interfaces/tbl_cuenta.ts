@@ -9,3 +9,8 @@ export interface Login {
     correo: string,
     contrasena: string,
 }
+
+export interface LoginResponse {
+    token: string;
+    rol: string;
+}

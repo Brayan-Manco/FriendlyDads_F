@@ -34,4 +34,8 @@ export class ArchService{
   getInfo(id_info: number): Observable<InfoUpdate>{
     return this.http.get<InfoUpdate>(`${this.myAppUrl}${this.myApiUrl}/info/findOneUpdate/${id_info}`)
   }
+
+  updateInfo(id_info: number, info: InfoCreate): Observable<void>{
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}/info/update/${id_info}`,info)
+  }
 }

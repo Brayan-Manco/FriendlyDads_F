@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
   {
-    path:'perfil',
+    path:'perfil/:id',
     loadChildren: ()=>import('../perfil/perfil.module').then(m =>m.PerfilModule)
   },
 
@@ -60,8 +60,14 @@ const routes: Routes = [
     path:'form-bebe',
     loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
   },
+    //editar con el componente de form-bebe
+
   {
-    path:'form-per',
+    path:'form-bebe/:id',
+    loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
+  },
+  {
+    path:'form-per/:id',
     loadChildren: ()=>import('../form-per/form-per.module').then(m =>m.FormPerModule)
   },
   {

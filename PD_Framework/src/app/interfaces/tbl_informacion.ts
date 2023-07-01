@@ -16,6 +16,7 @@ export interface Info{
 }
 
 export interface InfoCreate{
+    id_info?: number,
     doc: File,
     fk_id_clasificacion: number,
     fk_id_admin: number;
@@ -24,6 +25,7 @@ export interface InfoCreate{
 }
 
 export interface InfoUpdate{
+
     nombre: string,
     descripcion: string,
     tbl_clasificacione: {
