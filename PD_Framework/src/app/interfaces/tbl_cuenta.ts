@@ -10,6 +10,13 @@ export interface Login {
     contrasena: string,
 }
 
+export interface Logueo {
+    id_cuenta: number,
+    correo: string,
+    contrasena: string,
+    rol: number
+}
+
 export interface LoginResponse {
     token: string;
     rol: string;

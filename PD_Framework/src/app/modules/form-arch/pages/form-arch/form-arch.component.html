@@ -33,7 +33,7 @@
             </div><br>
           <div class="form-group">
             <select formControlName="admin" class="way">
-              <option [value]="item.id_admin" *ngFor="let item of listAdminOf" class="j">
+              <option [value]="item.id_admin" *ngFor="let item of AdminOf" class="j">
                 {{ item.nombres }}
               </option>
             </select>
@@ -60,10 +60,8 @@
             </span>
         </div> -->
             <button [disabled]="form.invalid"  type="submit">Subir</button>
-            <button routerLink="/menu-admin">Volver</button>
+            <button routerLink="/menu-admin/{{id_cuenta}}">Volver</button>
         </form>
-
-        <input type="text" name="hhh" placeholder="hjgjgf">
     </div>
 </div>
 

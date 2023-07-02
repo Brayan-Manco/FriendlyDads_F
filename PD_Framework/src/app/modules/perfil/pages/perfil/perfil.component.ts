@@ -20,7 +20,7 @@ export class PerfilComponent implements OnInit {
   }
 
   constructor( private _perfilService: PerfilService,
-    private aRouter: ActivatedRoute) {
+    private aRouter: ActivatedRoute) { 
 
       this.id_user = Number(this.aRouter.snapshot.paramMap.get('id'));
       console.log(this.id_user)

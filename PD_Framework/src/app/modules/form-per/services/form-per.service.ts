@@ -36,6 +36,11 @@ export class FormPerService {
     return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/usuario/findUserOne/${id_info}`)
   }
 
+
+  getInfoUserForUpadte(id_user: number): Observable<UsuarioFind>{
+    return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/info/findOneUpdate/${id_user}`)
+  }
+
   saveUser(user: Usuario): Observable<void>{
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/usuario/create`,user)
   }

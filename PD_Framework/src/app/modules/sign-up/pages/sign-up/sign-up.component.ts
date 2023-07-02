@@ -4,7 +4,7 @@ import { __values } from 'tslib';
 import { cuentaService } from '../../services/services.service';
 
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from 'src/app/services/error.service';
 
@@ -25,8 +25,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(private _cuentaService: cuentaService,
     private router: Router,
-    private _errorService: ErrorService){
-
+    private _errorService: ErrorService,){
   }
 
   addCuenta(){

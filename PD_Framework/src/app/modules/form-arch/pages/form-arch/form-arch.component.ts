@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clasi } from 'src/app/interfaces/tbl_clasificacion';
 import { ArchService } from '../../services/arch.service';
-import { AdminCraate } from 'src/app/interfaces/tbl_administrador';
+import { Admin, AdminCraate } from 'src/app/interfaces/tbl_administrador';
 import { Info, InfoCreate, InfoUpdate } from 'src/app/interfaces/tbl_informacion';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -19,6 +19,7 @@ export class FormArchComponent implements OnInit{
   form: FormGroup;
   loading: boolean = false;
   id_info: number;
+  id_cuenta: number;
   operacion: string= 'Agregar';
   buttoAction: string= 'subir'
 
@@ -37,11 +38,12 @@ export class FormArchComponent implements OnInit{
         archivo: ['', Validators.required],
     })
     this.id_info = Number(aRouter.snapshot.paramMap.get('id'));
+    this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id_cuenta'))
   }
   
   ngOnInit(): void {
     this.getListClasi();
-    this.getListAdmin();
+    this.getAdmin(this.id_cuenta);
 
     if (this.id_info != 0) {
       //Es editar 
@@ -66,21 +68,24 @@ export class FormArchComponent implements OnInit{
   }
 
   listClasiOf: Clasi[] = []
-  listAdminOf: AdminCraate[] =[]
+  AdminOf: Admin[] =[]
 
   //se obtiene lista de cladificacion para llamarlo en los combobox
   getListClasi(){
-    this._infoService.getListInfo().subscribe((data: Clasi[]) =>{
-      this.listClasiOf = data;
+    this._infoService.getListInfo().subscribe((dataAdmin: Clasi[]) =>{
+      this.listClasiOf = dataAdmin;
     })
   }
 
     //se obtiene lista de administrador para llamarlo en los combobox
-  getListAdmin(){
-    this._infoService.getListAdmin().subscribe((data: AdminCraate[])=>{
-      this.listAdminOf = data;
+  getAdmin(id_cuenta: number){
+    this._infoService.getAdmin(id_cuenta).subscribe((data: Admin)=>{
+      this.AdminOf = Array.isArray(data) ? data : [data];
     })
   }
+
+
+  
 
   addFile(){
 
@@ -89,9 +94,9 @@ export class FormArchComponent implements OnInit{
       this.loading= true;
 
     const info: InfoCreate = {
-      doc: this.form.get('archivo')?.value,
+      doc: this.form.value.archivo,
       fk_id_clasificacion: this.form.value.clasificacion,
-      fk_id_admin: this.form.value.admin,
+      fk_id_admin: this.form.value.Admin,
       nombre: this.form.value.titulo,
       descripcion: this.form.value.descripcion
     }
@@ -107,7 +112,7 @@ export class FormArchComponent implements OnInit{
           Swal.fire({icon: 'success',
           title: 'Exito!',
           text: 'Contenido actualizado con exito'})
-          this.router.navigate(['/menu-admin'])
+          this.router.navigate(['/menu-admin/',this.id_cuenta])
           },
           error:(e: HttpErrorResponse)=>{
             this._errorService.msjError(e);

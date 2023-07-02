@@ -5,7 +5,7 @@ import { Estado } from 'src/app/interfaces/tbl_estado';
 import { Parentesco } from 'src/app/interfaces/tbl_parentesco';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from 'src/app/interfaces/tbl_usuario';
+import { Usuario, UsuarioFind } from 'src/app/interfaces/tbl_usuario';
 import Swal from 'sweetalert2';
 import { ErrorService } from 'src/app/services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -69,6 +69,23 @@ export class FormPerComponent implements OnInit {
     this._perService.getEstado().subscribe((data: Estado[]) => {
       // console.log(data)
       this.listEstado =data;
+    })
+  }
+
+  getUser(id_user: number){
+    this.loading = true;
+    this._perService.getInfoUserForUpadte(id_user).subscribe((data: UsuarioFind)=>{
+      console.log(data)
+      this.loading= false;
+      this.form.patchValue({
+        parentesco: data.tbl_parentesco.id_paren,
+        estado: data.tbl_estado.id_estado,
+        nombres: data.nombres,
+        apellidos: data.apellidos,
+        tipoDoc: data.tbl_tipo_doc.id_tipo_doc,
+        numero: data.numero_i,
+        edad: data.edad
+      })
     })
   }
 

@@ -21,11 +21,11 @@ const routes: Routes = [
     loadChildren: ()=>import('../sign-up/sign-up.module').then(m =>m.SignUpModule)
   },
   {
-    path:'menu-admin',
+    path:'menu-admin/:id',
     loadChildren: ()=>import('../menu-admin/menu-admin.module').then(m =>m.MenuAdminModule)
   },
   {
-    path:'menu',
+    path:'menu/:id',
     loadChildren: ()=>import('../menu/menu.module').then(m =>m.MenuModule)
   },
   {
@@ -45,7 +45,7 @@ const routes: Routes = [
 
        //crear 
   {
-    path:'form-arch',
+    path:'form-arch/:id_cuenta',
     loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
   },
 

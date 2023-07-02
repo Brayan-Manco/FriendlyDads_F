@@ -29,10 +29,16 @@
                 <li>  <strong> Estado: </strong>{{data.tbl_estado.estado}} </li>
                 <li> <a href="" routerLink="/form-per/{{data.id_usuario}}">Actualizar Datos</a> </li>
             </ul>
+            <ul *ngIf="listUser.length == 0" class="lista-datos">
+                <h2>Datos personales</h2><br>
+                <li> No hay informacion</li>
+                <button routerLink="/form-per">Agregar</button>
+            </ul>
             <ul *ngIf="listUser.length === 0" class="lista-datos">
                 <h4>No hay datos agregados</h4><br>
                 <li><a href="" routerLink="/form-per/{{data.id_usuario}}">Agregar datos personales</a> </li>
             </ul>
+            <br><br>
             <ul class="lista-datos">
                 <h2>Bebes</h2><br>
                 <div *ngFor="let item of listBebe">
