@@ -1,59 +1,77 @@
-<div class="container">
+<app-progress-bar  *ngIf="loading"></app-progress-bar>
+<div class="container" *ngIf="!loading">
     <div class="login-box">
-        <form class="form">
+        <form [formGroup]="form" (ngSubmit)="addUser()" class="form">
         <h1>Formulario del usuario</h1>
         <div class="form-group">
-            <select class="way">
-            <option value="tipo_documento" class="j">Parentesco</option>
-            <option value="Madre" class="j">Madre</option>
-            <option value="Padre" class="j">Padre</option>
-            <option value="Tio" class="j">Tio</option>
-            <option value="Tia" class="j">Tia</option>
+            <span>Parentesco</span>
+            <select formControlName="parentesco" class="way">
+                <option [value]="paren.id_paren" *ngFor="let paren of listParen" class="j">{{paren.parentesco}}</option>
             </select>
             <i></i>
+            <span *ngIf="form.get('paren.parentesco')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <select class="way">
-            <option value="tipo_documento" class="j">Estado</option>
-            <option value="Madre" class="j">Embarazada</option>
-            <option value="Padre" class="j">Crianza</option>
+            <span>Estado</span>
+            <select formControlName="estado" class="way">
+                <option  [value]="data.id_estado"  *ngFor="let data of listEstado" class="j">{{data.estado}}</option>
             </select>
+            
             <i></i>
+            <span *ngIf="form.get('data.id_estado')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <input type="text" id="titulo" name="titulo" required="required">
+            <input formControlName="nombres" type="text" id="titulo" name="titulo" required="required">
             <span>Nombres</span>
             <i></i>
+            <span *ngIf="form.get('nombres')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <input type="text" id="descripcion" name="descripcion" required="required">
+            <input formControlName="apellidos" type="text" id="descripcion" name="descripcion" required="required">
             <span>Apellidos</span>
             <i></i>
+            <span *ngIf="form.get('apellidos')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <select class="way">
-                <option value="tipo_documento" class="j">Tipo documento</option>
-                <option value="Madre" class="j">Cedula</option>
-                <option value="Padre" class="j">Targeta de identida</option>
+            <span>Tipo Documento</span>
+            <select formControlName="tipoDoc" class="way">
+                <option [value]="item.id_tipo_doc" *ngFor="let item of listTipoDoc" class="j">{{item.tipo_doc}}</option>
             </select>
             <i></i>
+            <span *ngIf="form.get('item.tipoDoc')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <input type="text" id="titulo" name="titulo" required="required">
+            <input formControlName="numero" type="text" id="titulo" name="titulo" required="required">
             <span>Numero</span>
             <i></i>
+            <span *ngIf="form.get('numero')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <input type="text" id="descripcion" name="descripcion" required="required">
+            <input formControlName="foto" type="text" id="descripcion" name="descripcion" required="required">
             <span>Edad</span>
             <i></i>
+            <span *ngIf="form.get('foto')?.hasError('required')  && form.get('titulo')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
         </div>
         <div class="form-group">
-            <input type="file" id="archivo" name="archivo" required="required">
+            <input formControlName="foto" type="file" id="archivo" name="archivo" required="required">
             <span class="date">Foto:</span>
             <i></i>
         </div>
-        <input type="submit" value="Guardar">
+        <button [disabled]="form.invalid" type="submit">{{operacion}}</button>
         </form>
     </div>
 </div>

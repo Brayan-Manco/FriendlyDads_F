@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Clasificacion, Clasif} from 'src/app/interfaces/tbl_clasificacion';
+import { Clasif } from 'src/app/interfaces/tbl_clasificacion';
 
 
 @Component({
@@ -18,7 +18,6 @@ export class ClasiComponent implements OnInit{
       descripcion: ['', Validators.required]
     })
   }
-  
   ngOnInit(): void {
     
   }

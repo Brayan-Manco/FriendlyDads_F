@@ -1,7 +1,7 @@
 <div class="container">
     <div class="bottons">
         <h1 class="title">Contenidos</h1>
-        <a href="" routerLink="/form-arch" class="custom-link-left">Subir Contenido</a>
+        <a href="" routerLink="/form-arch/{{id_cuenta}}" class="custom-link-left">Subir Contenido</a>
     </div>
     <div class="table-container">  
         <table *ngIf="listInfo.length > 0">
@@ -20,6 +20,7 @@
             <tbody>
                 <tr *ngFor="let data of listInfo">
                     <td>{{ data.nombre }}</td>
+                    <!-- <td><img [src]="'{{ data.archivo }}'" alt=""></td> -->
                     <td>{{ data.archivo }}</td>
                     <td>{{ data.descripcion }}</td>
                     <td>{{ data.tbl_clasificacione.clasificacion }}</td>
@@ -28,7 +29,7 @@
                     <td>{{ data.updatedAt }}</td>
                     <th>
                             <button (click)="deleteInfo(data.id_info)" class="custom-link color1">Eliminar</button>
-                            <button class="custom-link color2">Actualizar</button>
+                            <button  routerLink="/form-arch/{{ data.id_info}}" class="custom-link color2">Actualizar</button>
                     </th>
                 </tr>
             </tbody>

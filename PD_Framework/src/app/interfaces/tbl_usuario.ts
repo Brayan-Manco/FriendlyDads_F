@@ -1,5 +1,4 @@
 export interface Usuario{
-    id_usuario: number,
     fk_id_paren: number,
     fk_id_estado: number,
     ruta_imagen: string,
@@ -9,4 +8,30 @@ export interface Usuario{
     numero_i: string,
     edad: number,
     fk_id_cuenta: number
+}
+
+export interface UsuarioFind {
+    id_usuario?: number,
+    ruta_imagen: string,
+    nombres: string,
+    apellidos: string,
+    numero_i: string,
+    edad: number,
+    tbl_parentesco: {
+        id_paren: number,
+        parentesco: string
+    },
+    tbl_estado: {
+        id_estado: number,
+        estado: string
+    },
+    tbl_tipo_doc: {
+        id_tipo_doc: number,
+        tipo_doc: string
+    }
+    tbl_cuentum: {
+        id_cuenta: number,
+        correo: string,
+        usuario: string
+    }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Info } from 'src/app/interfaces/tbl_informacion';
 import { AdminService } from '../../services/admin.service';
 import Swal from 'sweetalert2';
@@ -14,13 +14,17 @@ import { ErrorService } from 'src/app/services/error.service';
 export class MenuAdminComponent implements OnInit {
 
 
+  id_cuenta: number;
   ngOnInit(): void {
     this.getListInfo()
   }
 
   listInfo: Info[] = []
 
-  constructor( private _infoService: AdminService){}
+  constructor( private _infoService: AdminService,
+    private aRouter: ActivatedRoute){
+      this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id'));
+    }
 
   getListInfo(){
     this._infoService.getListInfo().subscribe((data: Info[]) =>{

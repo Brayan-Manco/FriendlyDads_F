@@ -20,11 +20,9 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     ReactiveFormsModule
   ],
   providers: [
-    //obtine el token 
-
+    //obtine el token
     {provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

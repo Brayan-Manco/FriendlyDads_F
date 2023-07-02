@@ -8,3 +8,8 @@ export interface Admin{
     edad: number,
     fk_id_cuenta: number
 }
+
+export interface AdminCraate {
+    id_admin: number,
+    nombres: string,
+}
