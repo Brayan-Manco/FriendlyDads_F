@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Clasif } from 'src/app/interfaces/tbl_clasificacion';
 
 
@@ -10,13 +11,18 @@ import { Clasif } from 'src/app/interfaces/tbl_clasificacion';
 })
 export class ClasiComponent implements OnInit{
   form: FormGroup;
+  id_cuenta: number;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,
+    private aRouter: ActivatedRoute){
     this.form = this.fb.group({
       foto: ['',Validators.required],
       clasificacion: ['', Validators.required],
       descripcion: ['', Validators.required]
     })
+
+    this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id_cuenta'))
+
   }
   ngOnInit(): void {
     

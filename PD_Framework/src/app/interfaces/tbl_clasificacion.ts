@@ -16,3 +16,10 @@ export interface Clasif{
     clasificacion: string,
     descripcion: string
 }
+
+export interface ClasiList{
+    id_clasificacion: number,
+    foto: string,
+    clasificacion: string,
+    descripcion: string
+}

@@ -103,7 +103,7 @@ export class AuthComponent {
         
         if(rol == 2){
           if(vez == 0){
-              this.router.navigate(['/form-per/',id])
+              this.router.navigate(['form-per/cuenta/',id])
           }
         }else{
           this.router.navigate(['/menu/',id])

@@ -7,6 +7,7 @@ import { Tipo_doc } from 'src/app/interfaces/tbl_tip_doc';
 import Swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from 'src/app/services/error.service';
+import { UsuarioFind } from 'src/app/interfaces/tbl_usuario';
 
 @Component({
   selector: 'app-form-bebe',
@@ -15,7 +16,7 @@ import { ErrorService } from 'src/app/services/error.service';
 })
 export class FormBebeComponent implements OnInit{
 
-  id_usuario: number;
+  id_cuenta: number;
   form: FormGroup;
   listTipoDoc: Tipo_doc[] = [];
   loading : boolean = false;
@@ -31,15 +32,26 @@ export class FormBebeComponent implements OnInit{
       nombre_completo: ['', Validators.required],
       fk_id_tipo_doc: ['', Validators.required],
       numero_i: ['', Validators.required],
+      familiar: ['', Validators.required],
       edad: ['', Validators.required],
     })
 
-    this.id_usuario = Number(aRouter.snapshot.paramMap.get('id'));
+    this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
     
     this.getTipoDoc();
+    this.getAdmin(this.id_cuenta)
+  }
+
+  infoUser: UsuarioFind[] = []
+
+  getAdmin(id_cuenta: number){
+    this._babyService.getUser(id_cuenta).subscribe((data: UsuarioFind)=>{
+      this.infoUser = Array.isArray(data) ? data : [data];
+      console.log(this.infoUser)
+    })
   }
 
   addBebe(){
@@ -49,7 +61,7 @@ export class FormBebeComponent implements OnInit{
       fk_id_tipo_doc: this.form.value.fk_id_tipo_doc,
       numero_i: this.form.value.numero_i,
       edad: this.form.value.edad,
-      fk_id_usuario: this.id_usuario
+      fk_id_usuario: this.form.value.familiar
   }
 
   console.log(bebe)
@@ -61,7 +73,7 @@ export class FormBebeComponent implements OnInit{
       title: 'Exito!',
       text: 'Contenido agregado con exito'})
       // const rol = localStorage.getItem()
-      this.router.navigate(['/perfil/',this.id_usuario])
+      this.router.navigate(['/perfil/',this.id_cuenta])
       },
       error:(e: HttpErrorResponse)=>{
         this._errorServive.msjError(e);

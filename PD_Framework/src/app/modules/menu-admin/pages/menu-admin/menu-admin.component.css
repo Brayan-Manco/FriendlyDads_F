@@ -4,7 +4,7 @@
 
 .table-container {
     border-radius: 10px;
-    background-color: #553eba;
+    
     color: aliceblue;
     display: flex;
     margin-left: 30px;
@@ -32,8 +32,10 @@
 }
 
 table {
-    width: 100%;
     max-width: 100%;
+    background-color: #553eba;
+    border-radius: 5px;
+    padding: 5px;
     }
 
 th{
@@ -42,6 +44,7 @@ th{
 }
 td {
     text-align: center;
+    padding: 20px;
 }
 
 .custom-link-left {

@@ -18,6 +18,7 @@
             <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">El campo descripción es <strong>OBLIGATORIO</strong></span>
             <div>
                 <button [disabled]="form.invalid" type="submit" class="btn">Guardar</button>
+                <button routerLink="/menu-admin/{{id_cuenta}}" class="btn">Volver</button>
             </div>
         </form>
     </div>

@@ -32,9 +32,9 @@ export class FormPerService {
     return this.http.get<Tipo_doc[]>(`${this.myAppUrl}${this.myApiUrl}/tipoDoc/obtener`)
   }
 
-  getUser(id_info: number): Observable<UsuarioFind>{
-    return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/usuario/findUserOne/${id_info}`)
-  }
+  // getUser(id_info: number): Observable<UsuarioFind>{
+  //   return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/usuario/findUserOne/${id_info}`)
+  // }
 
 
   getInfoUserForUpadte(id_user: number): Observable<UsuarioFind>{
@@ -44,4 +44,6 @@ export class FormPerService {
   saveUser(user: Usuario): Observable<void>{
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/usuario/create`,user)
   }
+
+
 }

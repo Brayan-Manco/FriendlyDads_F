@@ -32,14 +32,18 @@ const routes: Routes = [
     path:'search',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
   },
-  {
+ {
     path:'perfil/:id',
     loadChildren: ()=>import('../perfil/perfil.module').then(m =>m.PerfilModule)
   },
+  {
+    path:'perfil/:id_admin',
+    loadChildren: ()=>import('../perfil/perfil.module').then(m =>m.PerfilModule)
+  }, 
 
   //formularios
   {
-    path:'clasificacion',
+    path:'clasificacion/:id_cuenta',
     loadChildren: ()=>import('../clasificacion/clasificacion.module').then(m =>m.ClasificacionModule)
   },
 
@@ -57,17 +61,23 @@ const routes: Routes = [
 
 
   {
-    path:'form-bebe/:id',
+    path:'form-bebe-create/:id_cuenta-update',
     loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
   },
     //editar con el componente de form-bebe
 
   {
-    path:'form-bebe/:id',
+    path:'form-bebe-update/:id_cuenta',
     loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
   },
+  
   {
-    path:'form-per/:id',
+    path: 'form-per/user-update/:id_user',
+    loadChildren: ()=>import('../form-per/form-per.module').then(m =>m.FormPerModule)
+  },
+
+  {
+    path: 'form-per/cuenta/:id_cuenta',
     loadChildren: ()=>import('../form-per/form-per.module').then(m =>m.FormPerModule)
   },
   {

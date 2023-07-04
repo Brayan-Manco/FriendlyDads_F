@@ -4,7 +4,7 @@ import { Tipo_doc } from 'src/app/interfaces/tbl_tip_doc';
 import { Estado } from 'src/app/interfaces/tbl_estado';
 import { Parentesco } from 'src/app/interfaces/tbl_parentesco';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Usuario, UsuarioFind } from 'src/app/interfaces/tbl_usuario';
 import Swal from 'sweetalert2';
 import { ErrorService } from 'src/app/services/error.service';
@@ -20,11 +20,23 @@ export class FormPerComponent implements OnInit {
   form: FormGroup;
   loading: boolean = false;
   id_user: number;
-  operacion: string = 'Subir Datos'
+  id_cuenta: number;
+  operacion: string = ''
   ngOnInit(): void {
     this.getParen();
     this.getEst();
     this.getTipoDoc();
+
+    this.aRouter.paramMap.subscribe((params: ParamMap) => {
+      if (params.has('id_user')) {
+        this.operacion = 'Actualizar'
+        this.id_user = Number(params.get('id_user'));
+        
+      } else if (params.has('id_cuenta')) {
+        this.id_cuenta = Number(params.get('id_cuenta'));
+        this.operacion = 'crear'
+      }
+    });
   }
 
   constructor (private _perService: FormPerService,
@@ -43,7 +55,8 @@ export class FormPerComponent implements OnInit {
       edad: ['', Validators.required],
       foto: ['', Validators.required],
     })
-      this.id_user = Number(aRouter.snapshot.paramMap.get('id'));
+      this.id_user = Number(aRouter.snapshot.paramMap.get('id_user'));
+      this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id_cuenta'))
       // console.log(this.id_user)
     }
 
@@ -90,6 +103,7 @@ export class FormPerComponent implements OnInit {
   }
 
   addUser(){
+    console.log('hola')
     this.loading =true;
 
     const user : Usuario = {
@@ -101,29 +115,30 @@ export class FormPerComponent implements OnInit {
       fk_id_tipo_doc: this.form.value.tipoDoc,
       numero_i: this.form.value.numero,
       edad: this.form.value.edad,
-      fk_id_cuenta: this.id_user
+      fk_id_cuenta: this.id_cuenta
     }
 
-    console.log(user)
+    if (this.id_user) {
+      console.log('user')
+    }
 
-
-    this.loading = true;
-    this._perService.saveUser(user).subscribe({
+    if(this.id_cuenta){
+      this.loading = true;
+      this._perService.saveUser(user).subscribe({
       next: (e) => {
         console.log(user)
         this.loading = false;
         Swal.fire({icon: 'success',
         title: 'Exito!',
-        text: 'Contenido agregado con exito'})
-        // const rol = localStorage.getItem()
-        this.router.navigate(['/perfil/',this.id_user])
+        text: 'Datos agregado con exito'})
+        // this.router.navigate(['/perfil/',this.id_cuenta])
         },
         error:(e: HttpErrorResponse)=>{
           this._errorService.msjError(e);
           this.loading = false;
         }
-    })
+      })
+    }
   }
-
-
 }
+

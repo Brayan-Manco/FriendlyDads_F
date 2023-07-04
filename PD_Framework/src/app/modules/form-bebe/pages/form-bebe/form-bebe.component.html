@@ -26,6 +26,18 @@
             <i></i>
         </div>
         <div class="form-group">
+            <select formControlName="familiar"  class="way">
+              <option [value]="item.id_usuario" *ngFor="let item of infoUser" class="j">
+            {{item.nombres}}
+              </option>
+            </select>
+            <span class="title">Familiar</span>
+            <i></i>
+            <!-- <span *ngIf="form.get('id_usuario')?.hasError('required') && form.get('id_usuario')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span> -->
+        </div> 
+        <div class="form-group">
             <input formControlName="edad" type="text" id="edad" name="ead" required="required">
             <span class="date">edad</span>
             <i></i>
