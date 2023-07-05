@@ -12,8 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class PerfilComponent implements OnInit {
 
+
   id_user : number;
-  imagenURL!: string; 
 
   ngOnInit(): void {
     this.getUser(this.id_user);
@@ -23,7 +23,6 @@ export class PerfilComponent implements OnInit {
   constructor( private _perfilService: PerfilService,
     private aRouter: ActivatedRoute) { 
 
-      this.imagenURL = '';
 
       this.id_user = Number(this.aRouter.snapshot.paramMap.get('id'));
       console.log(this.id_user)
@@ -53,7 +52,6 @@ export class PerfilComponent implements OnInit {
     this._perfilService.getUserInfo(id_user).subscribe((data: UsuarioFind[])=>{
       console.log(data)
       this.listUser = Array.isArray(data) ? data : [data];
-      this.imagenURL = this.listUser[0].ruta_imagen;
     })
   }
 }
