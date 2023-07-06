@@ -1,26 +1,23 @@
 <div class="container">
     <main>
-        <section class="search">
+        <!-- <section class="search">
           <form>
             <input type="text" placeholder="Ingrese su búsqueda">
             <button type="submit">Buscar</button>
           </form>
-         
-        </section>
-        
+        </section> -->
         <section class="results">
-          <h2>Resultados de búsqueda</h2>
-          <ul>
-            <li>
-              <h3>Título del resultado 1</h3>
-              <p>Descripción del resultado 1</p>
-            </li>
-            <li>
-              
-              <h3>Título del resultado 2</h3>
-              <p>Descripción del resultado 2</p>
-            </li>
+          <h1>Contenidos</h1><br>
+          <ul *ngIf="listInfo.length > 0">
+              <li *ngFor="let item of listInfo">
+                <a routerLink="/info/{{item.id_info}}">
+                  <h3>{{item.nombre}}</h3>
+                  <p>{{item.descripcion}}</p>
+                  <h6>Autor: {{item.tbl_administradore.nombres}}</h6>
+                </a>
+              </li>
           </ul>
+          <h5 *ngIf="listInfo.length == 0">No hay contenidos disponibles</h5>
         </section>
       </main>
 </div>

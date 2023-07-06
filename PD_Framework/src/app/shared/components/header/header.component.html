@@ -3,6 +3,12 @@
         <h1>Friendly Dads</h1>
     </div>
     <button class="header__toggle" (click)="toggleNav()">Menú</button>
+
+    <nav *ngIf="" class="header__nav" [ngClass]="{ 'active': isNavOpen }">
+        <ul>
+            <li><a class="item" (click)="logOut()">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
     <nav class="header__nav" [ngClass]="{ 'active': isNavOpen }">
         <ul>
             <li><a class="item" routerLink="/inicio">Inicio</a></li>

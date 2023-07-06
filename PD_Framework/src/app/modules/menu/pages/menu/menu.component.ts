@@ -10,7 +10,7 @@ import { Clasificacion } from 'src/app/interfaces/tbl_clasificacion';
 export class MenuComponent implements OnInit{
 
      listClasi : Clasificacion[] = [];
-
+    //  const token = localStorage.getItem('token')
     constructor(private _clasiService: ClasiService){}
 
     ngOnInit(): void {

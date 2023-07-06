@@ -8,9 +8,9 @@
                     <i class="far fa-image"></i>
                 </button> -->
             </div>
-            <!-- <button type="button" class="boton-portada">
-                <i class="far fa-image"></i> Cambiar fondo
-            </button> -->
+            <button type="button" routerLink="/menu" class="boton-portada">
+                Consultar información
+            </button>
         </div>
     </div>
     <div class="perfil-usuario-body">
@@ -22,12 +22,12 @@
         <div class="perfil-usuario-footer">
             <ul *ngIf="data" class="lista-datos">
                 <h2>Datos personales</h2><br>
-                <li>  <strong>Nombre: </strong> {{data.nombres}} {{data.apellidos}} </li>
-                <li>  <strong>Edad: </strong> {{data.edad}}</li>
-                <li>  <strong>Documento: </strong>{{data.numero_i}}</li>
-                <li>  <strong>Tipo Documento: </strong>{{data.tbl_tipo_doc.tipo_doc}}</li>
-                <li>  <strong>Posisción en la familia: </strong>{{data.tbl_parentesco.parentesco}}</li>
-                <li>  <strong> Estado: </strong>{{data.tbl_estado.estado}} </li>
+                <li><strong>Nombre: </strong> {{data.nombres}} {{data.apellidos}} </li>
+                <li><strong>Edad: </strong> {{data.edad}}</li>
+                <li><strong>Documento: </strong>{{data.numero_i}}</li>
+                <li><strong>Tipo Documento: </strong>{{data.tbl_tipo_doc.tipo_doc}}</li>
+                <li><strong>Posisción en la familia: </strong>{{data.tbl_parentesco.parentesco}}</li>
+                <li><strong> Estado: </strong>{{data.tbl_estado.estado}} </li>
                 <li> <a href="" routerLink="/form-per/user-update/{{data.id_usuario}}">Actualizar Datos</a> </li>
             </ul>
             <br><br>
@@ -45,10 +45,5 @@
                 <button routerLink="/form-bebe-create/{{id_cuenta}}">Agregar nuevo hijo</button> 
             </ul>
         </div>
-        <!-- <div class="redes-sociales">
-            <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
-            <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
-            <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
-        </div> -->
     </div>
 </section>

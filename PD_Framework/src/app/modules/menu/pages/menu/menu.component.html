@@ -2,7 +2,7 @@
     <h1>Temas</h1>
     <li *ngFor="let item of listClasi" class="container">
         <div class="formulario">
-          <a href="detalle.html" class="tarjeta">
+          <a routerLink="/search/{{item.id_clasificacion}}" class="tarjeta">
             <div class="right">
               <h2>{{ item.clasificacion }}</h2>
               <div class="informacion">

@@ -37,3 +37,17 @@ export interface InfoUpdate{
         nombres: string
     }
 }
+
+export interface infoSearch {
+    id_info: number,
+    nombre: string,
+    descripcion: string,
+    tbl_administradore: {
+        nombres: string
+    }
+}
+
+export interface oneInfo {
+    nombre: string,
+    informacion: Text
+}

@@ -25,12 +25,16 @@ const routes: Routes = [
     loadChildren: ()=>import('../menu-admin/menu-admin.module').then(m =>m.MenuAdminModule)
   },
   {
-    path:'menu/:id',
+    path:'menu',
     loadChildren: ()=>import('../menu/menu.module').then(m =>m.MenuModule)
   },
   {
-    path:'search',
+    path:'search/:id',
     loadChildren: ()=>import('../search/search.module').then(m =>m.SearchModule)
+  },
+  {
+    path: 'info/:id',
+    loadChildren: ()=>import('../info/info.module').then(m =>m.InfoModule)
   },
  {
     path:'perfil/:id',
@@ -42,13 +46,13 @@ const routes: Routes = [
     loadChildren: ()=>import('../clasificacion/clasificacion.module').then(m =>m.ClasificacionModule)
   },
 
-       //crear 
+     //crear 
   {
     path:'form-arch-create/:id_cuenta',
     loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
   },
 
-       //editar con el componente de form-arch
+     //editar con el componente de form-arch
 
   {
     path:'form-bebe-create/:id',
