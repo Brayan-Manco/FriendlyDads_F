@@ -13,19 +13,19 @@ import Swal from 'sweetalert2';
 export class PerfilComponent implements OnInit {
 
 
-  id_user : number;
+  id_cuenta : number;
 
   ngOnInit(): void {
-    this.getUser(this.id_user);
-    this.getBebe(this.id_user);
+    this.getUser(this.id_cuenta);
+    this.getBebe(this.id_cuenta);
   }
 
   constructor( private _perfilService: PerfilService,
     private aRouter: ActivatedRoute) { 
 
 
-      this.id_user = Number(this.aRouter.snapshot.paramMap.get('id'));
-      console.log(this.id_user)
+      this.id_cuenta = Number(this.aRouter.snapshot.paramMap.get('id'));
+      console.log(this.id_cuenta)
     }
 
     listUser: UsuarioFind[] = [];
@@ -40,7 +40,7 @@ export class PerfilComponent implements OnInit {
 
   deleteBebe(id_bebe: number){
     this._perfilService.deleteBebe(id_bebe).subscribe(()=>{
-      this.getBebe(this.id_user);
+      this.getBebe(this.id_cuenta);
       Swal.fire({icon: 'success',
         title: 'Exito!',
         text: 'Contenido borrado con exito'})

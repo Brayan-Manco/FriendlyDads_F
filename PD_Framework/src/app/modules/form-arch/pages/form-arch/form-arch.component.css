@@ -10,7 +10,6 @@
     background: whitesmoke;
     position: relative;
     margin-top: 60px;
-    width: 500px; 
     max-width: 100%;
     border-radius: 8px;
     background: whitesmoke;
@@ -30,7 +29,7 @@ h1 {
 .form-group {
     position: relative;
     margin-bottom: 20px;
-    width: 100%; 
+    width: 300px; 
 }
 
 .way {

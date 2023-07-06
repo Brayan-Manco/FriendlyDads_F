@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClasificacionRoutingModule } from './clasificacion-routing.module';
 import { ClasiComponent } from './pages/clasi/clasi.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ClasificacionRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ClasificacionModule { }

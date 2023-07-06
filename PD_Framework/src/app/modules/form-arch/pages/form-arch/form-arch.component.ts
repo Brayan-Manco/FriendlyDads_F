@@ -18,7 +18,6 @@ export class FormArchComponent implements OnInit{
 
   form: FormGroup;
   loading: boolean = false;
-  id_info: number;
   id_cuenta: number;
   operacion: string= 'Agregar';
   buttoAction: string= 'subir'
@@ -34,37 +33,15 @@ export class FormArchComponent implements OnInit{
         titulo: ['', Validators.required],
         descripcion: ['', Validators.required],
         clasificacion: ['', Validators.required],
-        admin: ['', Validators.required],
-        archivo: ['', Validators.required],
+        // admin: ['', Validators.required],
+        informacion: ['', Validators.required],
+        // archivo: ['', Validators.required],
     })
-    this.id_info = Number(aRouter.snapshot.paramMap.get('id'));
     this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id_cuenta'))
   }
   
   ngOnInit(): void {
     this.getListClasi();
-    this.getAdmin(this.id_cuenta);
-
-    if (this.id_info != 0) {
-      //Es editar 
-      this.operacion = 'Editar';
-      this.buttoAction =  'Actualizar'
-      this.getProduct(this.id_info);
-    }
-  }
-
-  getProduct(id_info: number){
-    this.loading = true;
-    this._infoService.getInfo(id_info).subscribe((data: InfoUpdate)=>{
-      console.log(data)
-      this.loading = false;
-      this.form.patchValue({
-        titulo: data.nombre,
-        descripcion: data.descripcion,
-        clasificacion: data.tbl_clasificacione.id_clasificacion,
-        admin: data.tbl_administradore.id_admin
-      })
-    })
   }
 
   listClasiOf: Clasi[] = []
@@ -77,50 +54,21 @@ export class FormArchComponent implements OnInit{
     })
   }
 
-    //se obtiene lista de administrador para llamarlo en los combobox
-  getAdmin(id_cuenta: number){
-    this._infoService.getAdmin(id_cuenta).subscribe((data: Admin)=>{
-      this.AdminOf = Array.isArray(data) ? data : [data];
-    })
-  }
-
-
-  
 
   addFile(){
 
     // console.log(this.form.get('titulo')?.value)
 
-      this.loading= true;
+    this.loading= true;
 
     const info: InfoCreate = {
-      doc: this.form.value.archivo,
+      informacion: this.form.value.informacion,
       fk_id_clasificacion: this.form.value.clasificacion,
-      fk_id_admin: this.form.value.Admin,
+      fk_id_admin: this.id_cuenta,
       nombre: this.form.value.titulo,
-      descripcion: this.form.value.descripcion
+      descripcion: this.form.value.descripcion,
     }
-
-    if(this.id_info !== 0){
-
-      //es editar
-      this.loading = true;
-      info.id_info = this.id_info;
-      this._infoService.updateInfo(this.id_info, info).subscribe({
-        next: (e) => {
-          this.loading = false;
-          Swal.fire({icon: 'success',
-          title: 'Exito!',
-          text: 'Contenido actualizado con exito'})
-          this.router.navigate(['/menu-admin/',this.id_cuenta])
-          },
-          error:(e: HttpErrorResponse)=>{
-            this._errorService.msjError(e);
-            this.loading = false;
-          }
-        })
-    }else{
-
+    console.log(info)
       //es agregar
       this.loading= true;
       this._infoService.saveInfo(info).subscribe({
@@ -130,7 +78,7 @@ export class FormArchComponent implements OnInit{
           title: 'Exito!',
           text: 'Contenido agregado con exito'})
           // const rol = localStorage.getItem()
-          this.router.navigate(['/menu-admin'])
+          this.router.navigate(['/menu-admin/', this.id_cuenta])
           },
           error:(e: HttpErrorResponse)=>{
             this._errorService.msjError(e);
@@ -139,4 +87,4 @@ export class FormArchComponent implements OnInit{
         })
     }
   }
-}
+

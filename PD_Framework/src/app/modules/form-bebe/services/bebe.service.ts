@@ -25,10 +25,10 @@ export class BebeService {
   
   saveFormbebe(Formbebe: baby ): Observable<void>{
 
-    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/bebe/create`,Formbebe)
+    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/bebe`,Formbebe)
   }
 
-  getUser(id_cuenta: number): Observable<UsuarioFind>{
-    return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/info/findOneUpdate/${id_cuenta}`)
+  getUser(id_cuenta: number): Observable<UsuarioFind[]>{
+    return this.http.get<UsuarioFind[]>(`${this.myAppUrl}${this.myApiUrl}/usuario/findUserOne/${id_cuenta}`)
   }
 }

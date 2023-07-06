@@ -10,6 +10,11 @@ export interface Login {
     contrasena: string,
 }
 
+export interface CuentaForm {
+    id_cuenta: number,
+    correo: string
+}
+
 export interface Logueo {
     id_cuenta: number,
     correo: string,

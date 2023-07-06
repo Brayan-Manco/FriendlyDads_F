@@ -1,22 +1,35 @@
 export interface Usuario{
     fk_id_paren: number,
     fk_id_estado: number,
-    ruta_imagen: string,
+    // ruta_imagen: string,
     nombres: string,
     apellidos: string,
     fk_id_tipo_doc: number,
     numero_i: string,
     edad: number,
     fk_id_cuenta: number
+
+}
+
+export interface UsuarioUpdate{
+    fk_id_paren: number,
+    fk_id_estado: number,
+    // ruta_imagen: string,
+    nombres: string,
+    apellidos: string,
+    fk_id_tipo_doc: number,
+    numero_i: string,
+    edad: number,
 }
 
 export interface UsuarioFind {
     id_usuario?: number,
-    ruta_imagen: string,
+    // ruta_imagen: string,
     nombres: string,
     apellidos: string,
     numero_i: string,
     edad: number,
+    fk_id_cuenta: number,
     tbl_parentesco: {
         id_paren: number,
         parentesco: string
@@ -34,4 +47,8 @@ export interface UsuarioFind {
         correo: string,
         usuario: string
     }
+}
+
+export interface estadoCuenta{
+    vez: number
 }

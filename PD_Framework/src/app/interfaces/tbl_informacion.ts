@@ -2,7 +2,7 @@ export interface Info{
     id_info: number;
     nombre: string;
     descripcion: string;
-    archivo: string;
+    informacion: string;
     fk_id_clasificacion: string;
     fk_id_admin: string;
     createdAt: Date;
@@ -17,7 +17,7 @@ export interface Info{
 
 export interface InfoCreate{
     id_info?: number,
-    doc: File,
+    informacion: string,
     fk_id_clasificacion: number,
     fk_id_admin: number;
     nombre: string,

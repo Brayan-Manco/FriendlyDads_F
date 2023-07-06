@@ -14,47 +14,6 @@ import jwt_decode from 'jwt-decode';
 })
 export class AuthComponent {
 
-
-//   correo: string = '';
-//   contrasena: string = '';
-//   loading: boolean = false;
-
-//   constructor(
-//     private cuentaService: cuentaService,
-//     private router: Router,
-//     private errorService: ErrorService
-//   ) {}
-
-//   login() {
-//     if (this.correo == '' || this.contrasena == '') {
-//       Swal.fire({
-//         icon: 'error',
-//         title: 'Hay campos vacíos',
-//         text: 'Digite todos los datos'
-//       });
-//       return;
-//     }
-
-//     const login: Login = {
-//       correo: this.correo,
-//       contrasena: this.contrasena,
-//     }
-
-//     this.loading = true;
-//     this.cuentaService.login(login).subscribe({
-//       next: (response) => {
-//         localStorage.setItem('token', response.token);
-//         localStorage.setItem('rol', response.rol);
-//         this.router.navigate(['/menu']);
-//         console.log(response.token);
-//       },
-//       error: (error) => {
-//         this.errorService.msjError(error);
-//         this.loading = false;
-//       }
-//     });
-//   }
-// }
   
   correo: string ='';
   contrasena: string= '';
@@ -90,7 +49,6 @@ export class AuthComponent {
       next: (token) => {
         localStorage.setItem('token', token);
         const decodedToken : any = jwt_decode(token)
-        console.log(decodedToken)
 
         const id = decodedToken.id;
         const rol = decodedToken.rol; 
@@ -98,15 +56,13 @@ export class AuthComponent {
 
         if(rol == 1){
           this.router.navigate(['/menu-admin/',id])
-        }
-
-        
+        }        
         if(rol == 2){
           if(vez == 0){
               this.router.navigate(['form-per/cuenta/',id])
+          }if(vez == 1){
+            this.router.navigate(['/perfil/',id])
           }
-        }else{
-          this.router.navigate(['/menu/',id])
         }
           
         },

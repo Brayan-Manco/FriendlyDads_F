@@ -48,7 +48,7 @@ export class FormBebeComponent implements OnInit{
   infoUser: UsuarioFind[] = []
 
   getAdmin(id_cuenta: number){
-    this._babyService.getUser(id_cuenta).subscribe((data: UsuarioFind)=>{
+    this._babyService.getUser(id_cuenta).subscribe((data: UsuarioFind[])=>{
       this.infoUser = Array.isArray(data) ? data : [data];
       console.log(this.infoUser)
     })

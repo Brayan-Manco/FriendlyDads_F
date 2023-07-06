@@ -31,7 +31,7 @@
                 El campo es <strong>requerido </strong>
             </span>
             </div><br>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <select formControlName="admin" class="way">
               <option [value]="item.id_admin" *ngFor="let item of AdminOf" class="j">
                 {{ item.nombres }}
@@ -42,15 +42,23 @@
             <span *ngIf="form.get('fk_id_admin')?.hasError('required')  && form.get('fk_id_admin')?.touched ">
                 El campo es <strong>requerido </strong>
             </span>
-          </div><br>
+          </div><br> -->
         <div class="form-group">
+            <input  formControlName="informacion" type="text" id="informacion" name="informacion">
+            <span class="title">informacion</span>
+            <i></i>
+            <span *ngIf="form.get('informacion')?.hasError('informacion')  && form.get('informacion')?.touched ">
+                El campo es <strong>requerido </strong>
+            </span>
+        </div><br>
+        <!-- <div class="form-group">
             <input formControlName="archivo" type="file" id="archivo" name="archivo">
             <span class="title">Archivo</span>
             <i></i>
             <span *ngIf="form.get('archivo')?.hasError('required') && form.get('archivo')?.touched ">
                 El campo es <strong>requerido </strong>
             </span>
-        </div>
+        </div> -->
         <!-- <div class="form-group">
             <input type="file" id="archivo" name="archivo" (change)="onFileSelected($event)" required>
             <span class="title">Archivo</span>

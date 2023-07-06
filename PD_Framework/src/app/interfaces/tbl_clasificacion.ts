@@ -12,14 +12,14 @@ export interface Clasi {
 
 
 export interface Clasif{
-    foto: string,
+    foto: Text,
     clasificacion: string,
-    descripcion: string
+    descripcion: Text
 }
 
 export interface ClasiList{
     id_clasificacion: number,
-    foto: string,
+    // foto: string,
     clasificacion: string,
     descripcion: string
 }

@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CuentaForm } from 'src/app/interfaces/tbl_cuenta';
 import { Estado } from 'src/app/interfaces/tbl_estado';
 import { Parentesco } from 'src/app/interfaces/tbl_parentesco';
 import { Tipo_doc } from 'src/app/interfaces/tbl_tip_doc';
-import { Usuario, UsuarioFind } from 'src/app/interfaces/tbl_usuario';
+import { Usuario, UsuarioFind, UsuarioUpdate, estadoCuenta } from 'src/app/interfaces/tbl_usuario';
 import { enviroment } from 'src/enviroments/enviroments';
 
 @Injectable({
@@ -36,6 +37,9 @@ export class FormPerService {
   //   return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/usuario/findUserOne/${id_info}`)
   // }
 
+  updateUser(id_usuario: number, user: UsuarioUpdate): Observable<void>{
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}/usuario/update/${id_usuario}`, user)
+  }
 
   getInfoUserForUpadte(id_user: number): Observable<UsuarioFind>{
     return this.http.get<UsuarioFind>(`${this.myAppUrl}${this.myApiUrl}/info/findOneUpdate/${id_user}`)
@@ -45,5 +49,8 @@ export class FormPerService {
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}/usuario/create`,user)
   }
 
+  updateEstado (id: number, est : estadoCuenta): Observable<void>{
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}/usuario/estado/${id}`,est)
+  }
 
 }

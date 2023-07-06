@@ -5,10 +5,11 @@ import { Estado } from 'src/app/interfaces/tbl_estado';
 import { Parentesco } from 'src/app/interfaces/tbl_parentesco';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Usuario, UsuarioFind } from 'src/app/interfaces/tbl_usuario';
+import { Usuario, UsuarioFind, UsuarioUpdate, estadoCuenta } from 'src/app/interfaces/tbl_usuario';
 import Swal from 'sweetalert2';
 import { ErrorService } from 'src/app/services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import * as jwt from 'jsonwebtoken';
 
 @Component({
   selector: 'app-form-per',
@@ -21,12 +22,12 @@ export class FormPerComponent implements OnInit {
   loading: boolean = false;
   id_user: number;
   id_cuenta: number;
-  operacion: string = ''
+  operacion: string = '';
+
   ngOnInit(): void {
     this.getParen();
     this.getEst();
     this.getTipoDoc();
-
     this.aRouter.paramMap.subscribe((params: ParamMap) => {
       if (params.has('id_user')) {
         this.operacion = 'Actualizar'
@@ -45,6 +46,7 @@ export class FormPerComponent implements OnInit {
     private router : Router,
     private _errorService: ErrorService){
 
+
     this.form = this.fb.group({
       parentesco: ['', Validators.required],
       estado: ['', Validators.required],
@@ -53,7 +55,7 @@ export class FormPerComponent implements OnInit {
       tipoDoc: ['', Validators.required],
       numero: ['', Validators.required],
       edad: ['', Validators.required],
-      foto: ['', Validators.required],
+      // foto: ['', Validators.required],
     })
       this.id_user = Number(aRouter.snapshot.paramMap.get('id_user'));
       this.id_cuenta = Number(aRouter.snapshot.paramMap.get('id_cuenta'))
@@ -97,32 +99,66 @@ export class FormPerComponent implements OnInit {
         apellidos: data.apellidos,
         tipoDoc: data.tbl_tipo_doc.id_tipo_doc,
         numero: data.numero_i,
-        edad: data.edad
+        edad: data.edad,
       })
     })
   }
 
+  
+
   addUser(){
-    console.log('hola')
     this.loading =true;
 
-    const user : Usuario = {
-      fk_id_paren: this.form.value.parentesco,
-      fk_id_estado: this.form.value.estado,
-      ruta_imagen: this.form.value.foto,
-      nombres: this.form.value.nombres,
-      apellidos: this.form.value.apellidos,
-      fk_id_tipo_doc: this.form.value.tipoDoc,
-      numero_i: this.form.value.numero,
-      edad: this.form.value.edad,
-      fk_id_cuenta: this.id_cuenta
-    }
-
     if (this.id_user) {
-      console.log('user')
+      console.log('actualizar', this.id_user)
+
+      const userUp : UsuarioUpdate = {
+        fk_id_paren: this.form.value.parentesco,
+        fk_id_estado: this.form.value.estado,
+        // ruta_imagen: this.form.value.foto,
+        nombres: this.form.value.nombres,
+        apellidos: this.form.value.apellidos,
+        fk_id_tipo_doc: this.form.value.tipoDoc,
+        numero_i: this.form.value.numero,
+        edad: this.form.value.edad,
+      }
+      this.loading= true;
+      this._perService.updateUser(this.id_user, userUp).subscribe({
+        next: (e) => {
+          this.loading = false;
+          Swal.fire({icon: 'success',
+          title: 'Exito!',
+          text: 'Datos actualizados con exito'})
+          },
+          error:(e: HttpErrorResponse)=>{
+            this._errorService.msjError(e);
+            this.loading = false;
+          }
+      })
     }
 
     if(this.id_cuenta){
+
+      const est : estadoCuenta = {
+        vez: 1
+      }
+
+      this._perService.updateEstado(this.id_cuenta, est).subscribe()
+
+      console.log('hola')
+
+      const user : Usuario = {
+        fk_id_paren: this.form.value.parentesco,
+        fk_id_estado: this.form.value.estado,
+        // ruta_imagen: this.form.value.foto,
+        nombres: this.form.value.nombres,
+        apellidos: this.form.value.apellidos,
+        fk_id_tipo_doc: this.form.value.tipoDoc,
+        numero_i: this.form.value.numero,
+        edad: this.form.value.edad,
+        fk_id_cuenta: this.id_cuenta
+        
+      }
       this.loading = true;
       this._perService.saveUser(user).subscribe({
       next: (e) => {
@@ -131,7 +167,7 @@ export class FormPerComponent implements OnInit {
         Swal.fire({icon: 'success',
         title: 'Exito!',
         text: 'Datos agregado con exito'})
-        // this.router.navigate(['/perfil/',this.id_cuenta])
+        this.router.navigate(['/perfil/',this.id_cuenta])
         },
         error:(e: HttpErrorResponse)=>{
           this._errorService.msjError(e);

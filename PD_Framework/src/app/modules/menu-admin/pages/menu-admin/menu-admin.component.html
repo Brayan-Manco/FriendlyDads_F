@@ -1,7 +1,7 @@
 <div class="container">
     <div class="bottons">
         <h1 class="title">Contenidos</h1>
-        <a href="" routerLink="/form-arch/{{id_cuenta}}" class="custom-link-left">Subir Contenido</a>
+        <a href="" routerLink="/form-arch-create/{{id_cuenta}}" class="custom-link-left">Subir Contenido</a>
     </div>
     <div class="table-container">  
         <!-- <div class="bottons">
@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th>Nombres</th>
-                    <th>Archivo</th>
+                    <th>informacion</th>
                     <th>Descripción</th>
                     <th>Clasificación</th>
                     <th>Autor</th>
@@ -24,8 +24,7 @@
             <tbody>
                 <tr *ngFor="let data of listInfo">
                     <td>{{ data.nombre }}</td>
-                    <!-- <td><img [src]="'{{ data.archivo }}'" alt=""></td> -->
-                    <td>{{ data.archivo }}</td>
+                    <td>{{ data.informacion }}</td>
                     <td>{{ data.descripcion }}</td>
                     <td>{{ data.tbl_clasificacione.clasificacion }}</td>
                     <td>{{ data.tbl_administradore.nombres }}</td>
@@ -33,7 +32,6 @@
                     <td>{{ data.updatedAt }}</td>
                     <th>
                             <a (click)="deleteInfo(data.id_info)" class="custom-link color1">Eliminar</a>
-                            <a  routerLink="/form-arch/{{ data.id_info}}" class="custom-link color2">Actualizar</a>
                     </th>
                 </tr>
             </tbody>
@@ -50,25 +48,21 @@
             <h1 class="title">clasificación</h1>
             <a href="" routerLink="/clasificacion/{{id_cuenta}}" class="custom-link-left">Nueva Clasificación</a>
         </div> -->
-        <table>
+        <table *ngIf="listClasi.length > 0">
             <thead>
                 <tr>
                     <th>Clasificaciones</th>
                     <th>Descripciones</th>
-                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of listClasi ">
                     <td>{{item.clasificacion}}</td>
                     <td>{{item.descripcion}}</td>
-                    <th>
-                            <a href="" (click)="deleteClasi(item.id_clasificacion)" class="custom-link color1">Eliminar</a>
-                            <a href="" class="custom-link color2">Actualizar</a>
-                    </th>
                 </tr>
             </tbody>
         </table>
+        <h5 *ngIf="listClasi.length == 0">No hay clasificaciones subidos</h5>
     </div>
 </div>
 

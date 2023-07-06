@@ -36,11 +36,6 @@ const routes: Routes = [
     path:'perfil/:id',
     loadChildren: ()=>import('../perfil/perfil.module').then(m =>m.PerfilModule)
   },
-  {
-    path:'perfil/:id_admin',
-    loadChildren: ()=>import('../perfil/perfil.module').then(m =>m.PerfilModule)
-  }, 
-
   //formularios
   {
     path:'clasificacion/:id_cuenta',
@@ -49,28 +44,17 @@ const routes: Routes = [
 
        //crear 
   {
-    path:'form-arch/:id_cuenta',
+    path:'form-arch-create/:id_cuenta',
     loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
   },
 
        //editar con el componente de form-arch
-  {
-    path:'form-arch/:id',
-    loadChildren: ()=>import('../form-arch/form-arch.module').then(m =>m.FormArchModule)
-  },
-
 
   {
-    path:'form-bebe-create/:id_cuenta-update',
+    path:'form-bebe-create/:id',
     loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
   },
     //editar con el componente de form-bebe
-
-  {
-    path:'form-bebe-update/:id_cuenta',
-    loadChildren: ()=>import('../form-bebe/form-bebe.module').then(m =>m.FormBebeModule)
-  },
-  
   {
     path: 'form-per/user-update/:id_user',
     loadChildren: ()=>import('../form-per/form-per.module').then(m =>m.FormPerModule)
