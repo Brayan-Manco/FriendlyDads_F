@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Login, LoginResponse } from 'src/app/interfaces/tbl_cuenta';
 import { enviroment } from 'src/enviroments/enviroments';
 

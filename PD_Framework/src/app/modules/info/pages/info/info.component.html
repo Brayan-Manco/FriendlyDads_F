@@ -1,3 +1,4 @@
+
 <div *ngFor="let data of info">
         <div *ngIf="data" class="container">
           <h1>{{data.nombre}}</h1>
@@ -7,8 +8,14 @@
                     <!-- <img src="preview.jpg" alt="Vista previa del archivo"> -->
                 </div>
             </div>
+            <br>
+            <br>
         <!-- <div class="file-download">
             <a href="archivo.pdf" download>Descargar archivo</a>
         </div> -->
+
+            <button class="c" routerLink="/menu">Regresar al menú</button>
+            <button class="b" routerLink="/perfil/{{userId}}">Regresar a mi perfil</button>
     </div>
 </div>
+

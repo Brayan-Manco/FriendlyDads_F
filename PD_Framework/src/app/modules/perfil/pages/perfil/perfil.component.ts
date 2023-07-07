@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PerfilService } from '../../services/perfil.service';
 import { UsuarioFind } from 'src/app/interfaces/tbl_usuario';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getBebe } from 'src/app/interfaces/tbl_bebe';
 import Swal from 'sweetalert2';
 
@@ -21,7 +21,8 @@ export class PerfilComponent implements OnInit {
   }
 
   constructor( private _perfilService: PerfilService,
-    private aRouter: ActivatedRoute) { 
+    private aRouter: ActivatedRoute,
+    private router: Router) { 
 
 
       this.id_cuenta = Number(this.aRouter.snapshot.paramMap.get('id'));
@@ -53,5 +54,10 @@ export class PerfilComponent implements OnInit {
       console.log(data)
       this.listUser = Array.isArray(data) ? data : [data];
     })
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/inicio'])
   }
 }

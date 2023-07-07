@@ -4,11 +4,35 @@
   padding: 0;
 }
 
+.b{
+  margin-left: 10px;
+  background-color: #9d4edd;
+  color: white;
+}
+
+.c{
+  float: right;
+  margin-left: 10px;
+  background-color: #9d4edd;
+  color: white;
+}
+
 a{
   text-decoration: none;
   color: black;
 }
 
+button {
+  text-decoration: none;
+  top: 1rem;
+  right: 1rem;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
 
 h1 {
   margin: 0;

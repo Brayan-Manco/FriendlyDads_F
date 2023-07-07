@@ -10,13 +10,12 @@
   .right-section {
     flex: 1;
   }
-
   
   .left-section {
     margin-top: 0;
     background-color: #BEBCFC;
     border-radius: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
   }
   
   .right-section {

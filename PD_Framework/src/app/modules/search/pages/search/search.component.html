@@ -8,6 +8,8 @@
         </section> -->
         <section class="results">
           <h1>Contenidos</h1><br>
+            <button class="c" routerLink="/menu">Regresar al menú</button>
+            <button class="b" routerLink="/perfil/{{userId}}">Regresar a mi perfil</button>
           <ul *ngIf="listInfo.length > 0">
               <li *ngFor="let item of listInfo">
                 <a routerLink="/info/{{item.id_info}}">

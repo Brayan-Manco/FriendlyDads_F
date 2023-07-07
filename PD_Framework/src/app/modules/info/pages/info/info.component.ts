@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../../services/info.service';
 import { ActivatedRoute } from '@angular/router';
 import { oneInfo } from 'src/app/interfaces/tbl_informacion';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-info',
@@ -11,13 +12,22 @@ import { oneInfo } from 'src/app/interfaces/tbl_informacion';
 export class InfoComponent implements OnInit{
 
   id_info: number;
-
+  userId: string = '';
   ngOnInit(): void {
     this.getUser(this.id_info)
+
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken: any = jwt_decode(token);
+      this.userId = decodedToken.id;
+    } else {
+      console.error('No se encontró un token válido');
+    }
+
   }
 
   constructor( private _infoService: InfoService,
-    private aRouter: ActivatedRoute) { 
+    private aRouter: ActivatedRoute) {  
 
       this.id_info = Number(this.aRouter.snapshot.paramMap.get('id'));
       // console.log(this.id_cuenta)

@@ -5,24 +5,19 @@
         <h1>Formulario del bebe</h1>
         <div class="form-group">
             <input formControlName="nombre_completo" type="text" id="titulo" name="titulo" required="required">
-            <span>Nombre proximo del bebé</span>
+            <label>Nombre próximo del bebé</label>
             <i></i>
-            <span *ngIf="form.get('nombre_completo')?.hasError('required') && form.get('nombre_completo')?.touched ">
-                El campo es <strong>requerido </strong>
-            </span>
         </div>
         <div class="form-group">
             <select formControlName="fk_id_tipo_doc" class="way">
                 <option [value]="item.id_tipo_doc" *ngFor="let item of listTipoDoc" class="j">{{item.tipo_doc}}</option>
             </select>   
+            <label>Tipo de documento</label>
             <i></i>
-            <span *ngIf="form.get('fk_id_tipo_doc')?.hasError('required') && form.get('tipo_documento')?.touched ">
-                El campo es <strong>requerido </strong>
-            </span>
         </div>
         <div class="form-group">
             <input formControlName="numero_i" type="text" id="numero" name="numero" required="required">
-            <span class="date">Numero</span>
+            <label class="date">Número</label>
             <i></i>
         </div>
         <div class="form-group">
@@ -31,7 +26,7 @@
             {{item.nombres}}
               </option>
             </select>
-            <span class="title">Familiar</span>
+            <label class="title">Familiar</label>
             <i></i>
             <!-- <span *ngIf="form.get('id_usuario')?.hasError('required') && form.get('id_usuario')?.touched ">
                 El campo es <strong>requerido </strong>
@@ -39,7 +34,7 @@
         </div> 
         <div class="form-group">
             <input formControlName="edad" type="text" id="edad" name="ead" required="required">
-            <span class="date">edad</span>
+            <label class="date">Edad</label>
             <i></i>
         </div>
         <input type="submit" [disabled]="form.invalid" value="Guardar">

@@ -26,23 +26,23 @@
                 <li><strong>Edad: </strong> {{data.edad}}</li>
                 <li><strong>Documento: </strong>{{data.numero_i}}</li>
                 <li><strong>Tipo Documento: </strong>{{data.tbl_tipo_doc.tipo_doc}}</li>
-                <li><strong>Posisción en la familia: </strong>{{data.tbl_parentesco.parentesco}}</li>
+                <li><strong>Posición en la familia: </strong>{{data.tbl_parentesco.parentesco}}</li>
                 <li><strong> Estado: </strong>{{data.tbl_estado.estado}} </li>
-                <li> <a href="" routerLink="/form-per/user-update/{{data.id_usuario}}">Actualizar Datos</a> </li>
+                <li> <a href="" class="actualizar" routerLink="/form-per/user-update/{{data.id_usuario}}">Actualizar Datos</a> </li>
             </ul>
             <br><br>
             <ul class="lista-datos">
-                <h2>Bebes</h2><br>
+                <h2>Bebés</h2><br>
                 <div *ngFor="let item of listBebe">
-                    <li><strong>nombre: </strong>{{item.nombre_completo}}</li>
+                    <li><strong>Nombre: </strong>{{item.nombre_completo}}</li>
                     <li><strong>Edad: </strong>{{item.edad}}  </li>
-                    <li><button (click)="deleteBebe(item.id_bebe)">eliminar</button> </li>
+                    <li><a class="eliminar" (click)="deleteBebe(item.id_bebe)">Eliminar</a> </li>
                     <hr>
                 </div>
                 <div *ngIf="listBebe.length == 0">
                     <li><h4>No hay datos</h4></li>
                 </div><br>
-                <button routerLink="/form-bebe-create/{{id_cuenta}}">Agregar nuevo hijo</button> 
+                <button class="b" routerLink="/form-bebe-create/{{id_cuenta}}">Agregar nuevo registro</button> 
             </ul>
         </div>
     </div>

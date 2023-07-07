@@ -5,6 +5,30 @@
     padding: 0;
   }
 
+  .c{
+    float: right;
+    margin-left: 10px;
+    background-color: #9d4edd;
+    color: white;
+  }
+
+  .b{
+    margin-left: 10px;
+    background-color: #9d4edd;
+    color: white;
+  }
+
+   button {
+    text-decoration: none;
+    top: 1rem;
+    right: 1rem;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: black;
+    cursor: pointer;
+}
+
 .container {
     background-color: #fff;
     border-radius: 5px;

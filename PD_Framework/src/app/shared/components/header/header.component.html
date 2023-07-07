@@ -3,17 +3,17 @@
         <h1>Friendly Dads</h1>
     </div>
     <button class="header__toggle" (click)="toggleNav()">Menú</button>
-
-    <nav *ngIf="" class="header__nav" [ngClass]="{ 'active': isNavOpen }">
-        <ul>
-            <li><a class="item" (click)="logOut()">Cerrar Sesión</a></li>
-        </ul>
-    </nav>
     <nav class="header__nav" [ngClass]="{ 'active': isNavOpen }">
-        <ul>
-            <li><a class="item" routerLink="/inicio">Inicio</a></li>
+        <ng-container *ngIf="tieneToken; else mostrarIniciarSesion">
+            <ul>
+                <li><a class="item" (click)="logOut()">Cerrar Sesión</a></li>
+            </ul>
+        </ng-container>
+        <ng-template #mostrarIniciarSesion>
+            <ul>
+                <li><a class="item" routerLink="/inicio">Inicio</a></li>
             <li><a class="item" routerLink="/auth">Iniciar Sesión</a></li>
-            <li><a class="item" (click)="logOut()">Cerrar Sesión</a></li>
-        </ul>
+            </ul>
+        </ng-template>
     </nav>
 </header>

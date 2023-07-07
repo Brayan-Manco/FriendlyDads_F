@@ -13,7 +13,6 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent {
-
   
   correo: string ='';
   contrasena: string= '';
